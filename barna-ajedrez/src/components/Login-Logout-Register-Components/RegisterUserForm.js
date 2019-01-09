@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 
-class RegisterClubForm extends Component {
+class RegisterUserForm extends Component {
 
 
   render() {
     return (
       <div className="container">
-      register club form will go here!
+
+      user registration for will go here
 
       </div>
     );
   }
 }
-export default RegisterClubForm;
+export default RegisterUserForm;

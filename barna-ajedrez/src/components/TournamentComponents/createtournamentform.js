@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
-import { Link } from "@reach/router";
-
 class CreateTournamentForm extends Component {
 
 
   render() {
-    console.log('here')
     return (
       <div className="container">
       {/* Maybe better to map over this in the store */}
-        {/* <Link to="CreateNewTournament"> */}
           <input type="text" placeholder="" />
           <input type="text" placeholder="" />
           <input type="text" placeholder="" />

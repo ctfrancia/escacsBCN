@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import CreateTournamentForm from './createtournamentform';
 import TournamentList from './tournamentList';
-import { Router, Link } from '@reach/router';
+import { Link } from '@reach/router';
 
 class TournamentContainer extends Component {
   render() {
     return (
       <div className="container">
-
-        <Link to="/Tournaments/CreateNewTournament">Create New Tournament</Link>
-        <p> Here is where the tournaments will be listed </p>
+      {/* Need to conditionally load that when the create tournament link is clicked it shows just the form */}
+        <Link to="CreateNewTournament">Create New Tournament</Link>
         {this.props.children}
-          <TournamentList />
+        <p> Here is where the tournaments will be listed </p>
+
+        <TournamentList />
       </div>
     );
   }
