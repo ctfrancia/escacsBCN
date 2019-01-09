@@ -11,3 +11,4 @@ class RegisterClubForm extends Component {
     );
   }
 }
+export default RegisterClubForm;

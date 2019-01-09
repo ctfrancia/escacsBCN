@@ -11,3 +11,4 @@ class RegisterUser extends Component {
     );
   }
 }
+export default RegisterUser;

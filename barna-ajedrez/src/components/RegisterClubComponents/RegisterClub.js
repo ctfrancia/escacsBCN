@@ -11,3 +11,4 @@ class RegisterClub extends Component {
     );
   }
 }
+export default RegisterClub;

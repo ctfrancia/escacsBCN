@@ -11,3 +11,4 @@ class RegisterUserForm extends Component {
     );
   }
 }
+export default RegisterUserForm;
