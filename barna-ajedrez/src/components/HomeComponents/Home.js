@@ -6,6 +6,9 @@ class Home extends Component {
   render() {
     return (
       <div>
+        <p>
+          some text here for show
+        </p>
 
       </div>
     );
