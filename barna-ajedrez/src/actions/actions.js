@@ -5,6 +5,15 @@ export const addNewTournament = tournament => ({
   tournament,
 });
 
-export const updateTournamentList = () => ({
-  type: 'UPDATE_TOURNAMENT_LIST'
+//argument is getting passed as an full payload object
+export const updateTournamentList = (tournaments) => (
+  //it's being reveived here
+  console.log('UDPATE TOURNAMENT ACTION',tournaments),
+{
+  type: 'UPDATE_TOURNAMENT_LIST',
+  tournaments: tournaments,
+});
+
+export const fetchTournamentList = () => ({
+  type: 'FETCH_TOURNAMENT_LIST'
 });
