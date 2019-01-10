@@ -3,4 +3,5 @@ const CONFIG = {
   dpass: 'W3killedit!',
 };
 
+testtest
 module.exports = CONFIG;

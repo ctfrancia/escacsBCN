@@ -2,37 +2,27 @@ import { combineReducers } from 'redux';
 
 const defaultState = {
   tournaments: [],
-  auth_token: false
+  authorization: {
+    user: '',
+    auth_token: ''
+  },
+  pages: {
+    loading: true
+  }
 };
 
-const addTournamentReducer = (state = defaultState, action) => {
+const TournamentReducer = (state = defaultState, action) => {
   switch (action.type) {
     case 'ADD_NEW_TOURNAMENT':
       return {
         tournaments: [...state.tournaments, action.tournament]
-      }
+      };
 
-    default:
-      return state;
-  }
-};
-
-const fetchTournamentsReducer = (state = defaultState, action) => {
-  switch (action.type) {
     case 'FETCH_TOURNAMENT_LIST':
       return {
-        state
+        tournaments: [...state.tournaments, ...action.tournament]
       };
-    default:
-      return state;
-  }
-};
 
-const updateTournamentListReducer = (state = defaultState, action) => {
-
-  console.log('update tournament list reducer', action.tournaments);
-
-  switch (action.type) {
     case 'UPDATE_TOURNAMENT_LIST':
       return {
         tournaments: [...state.tournaments, action.tournaments]
@@ -43,10 +33,58 @@ const updateTournamentListReducer = (state = defaultState, action) => {
   }
 };
 
+const authorizationReducer = (state = defaultState, action) => {
+  switch (action.type) {
+    case 'SIGN_IN':
+      return{
+        ...state,
+        authorization: {
+          user: `${action.username}`,
+          auth_token: `${action.auth_token}`
+        }
+      }
+    case 'SIGN_OUT':
+      return{
+        ...state,
+        authorization: {
+          user: '',
+          auth_token: ''
+        }
+      };
+
+    default:
+      return state;
+  }
+};
+
+const pagesReducer = (state = defaultState, action) => {
+  switch (action.type) {
+    case 'IS_LOADING':
+      return {
+        ...state,
+        pages: {
+          loading: true
+        }
+      };
+
+    case 'DONE_LOADING':
+      return {
+        ...state,
+        pages: {
+          loading: false
+        }
+      }
+
+    default:
+      return state;
+  }
+}
+
+
 const appReducers = combineReducers({
-  addTournament: addTournamentReducer,
-  fetchTournaments: fetchTournamentsReducer,
-  updateTournamentList: updateTournamentListReducer,
+  tournamentAction: TournamentReducer,
+  userAction: authorizationReducer,
+  loading: pagesReducer,
 });
 
 export default appReducers;
