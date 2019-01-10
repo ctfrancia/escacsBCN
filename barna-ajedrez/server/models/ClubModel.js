@@ -1,6 +1,6 @@
 const CONFIG = require('../config');
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('ajedrezdb', `${CONFIG.duser}`, `${CONFIG.dpass}`, {
+const sequelize = new Sequelize('ajedrezdb', CONFIG.duser, CONFIG.dpass, {
   host: 'localhost',
   dialect: 'postgres',
 });
@@ -18,7 +18,7 @@ const Club = sequelize.define('club', {
     primaryKey: true,
     autoIncrement: true,
   },
-  nameOfClub: {
+  clubName: {
     type: Sequelize.STRING,
   },
   location: {
@@ -51,18 +51,18 @@ const Club = sequelize.define('club', {
 });
 module.exports.writeToNewClubDB = (ctx) => {
 
-  // const { ctx.request.body } = club;
+  const club =  ctx.request.body ;
   const date = Date.now();
   const newClub = new Club
     .build({
-      nameOfClub: `${club.name}`,
+      clubName: `${club.name}`,
       location: `${club.location}`,
       organizerName: `${club.organizerName}` ,
       clubNumber: `${club.clubNumber}`,
       clubEmail: `${club.clubEmail}`,
       languages: `${club.languages}`,
-      extras: `${club.extras}`,
-      website: `${club.website}`,
+      clubExtras: `${club.extras}`,
+      clubWebsite: `${club.website}`,
       additionalInfo: `${club.additionalInfo}`,
       dateRegistered: `${date}`,
     })

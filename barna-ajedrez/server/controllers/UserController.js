@@ -1,4 +1,9 @@
-const writeToNewUserDB = require('../models/UserModel');
+const {
+  writeToNewUserDB,
+  deleteUserinDb,
+  editUserInDb,
+  signIntoDB
+} = require('../models/UserModel');
 
 module.exports.createNewUser = async function createNewUser(ctx) {
   try {
@@ -10,15 +15,32 @@ module.exports.createNewUser = async function createNewUser(ctx) {
   }
 };
 
+module.exports.signinUser = async ctx => {
+  const id = ctx.user.id;
 
-module.exports.signinUser = async (ctx) => {
+  try {
+    await signIntoDB(id);
 
+  } catch (e) {
+    console.log(e);
+  }
 };
+module.exports.deleteUser = async ctx => {
+  const id = ctx.user.id;
 
-module.exports.deleteUser = async (ctx) => {
+  try {
+    await deleteUserinDb(id);
 
+  } catch (e) {
+    console.log(e);
+  }
 };
+module.exports.updateUser = async ctx => {
+  const id = ctx.user.id;
 
-module.exports.updateUser = async (ctx) => {
-
+  try {
+    await editUserInDb(id);
+  } catch (e) {
+    console.log(e);
+  }
 };

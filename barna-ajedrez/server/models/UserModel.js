@@ -1,9 +1,11 @@
 const CONFIG = require('../config');
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('ajedrezdb', `${CONFIG.duser}`, `${CONFIG.dpass}`, {
+const sequelize = new Sequelize('ajedrezdb', CONFIG.duser, CONFIG.dpass, {
   host: 'localhost',
   dialect: 'postgres',
 });
+console.log(CONFIG.duser);
+
 sequelize
   .authenticate()
   .then(() => {
@@ -42,7 +44,7 @@ const User = sequelize.define('users', {
   },
 });
 
-module.exports = writeToNewUserDB = (ctx) => {
+module.exports.writeToNewUserDB = (ctx) => {
   const user = ctx.request.body;
   const date = Date.now();
   const newuser = new User
@@ -59,4 +61,33 @@ module.exports = writeToNewUserDB = (ctx) => {
     .save()
     .then(() => console.log('Created successfully'))
     .catch(err => console.log('OOPS!', err));
+};
+exports.signIntoDB = (id) => {
+const userID = id;
+
+  try {
+
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+exports.deleteUserinDb = (id) => {
+const userID = id;
+
+  try {
+
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+exports.editUserInDb = (id) => {
+const userID = id;
+
+  try {
+
+  } catch (e) {
+    console.log(e);
+  }
 };

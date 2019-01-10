@@ -1,6 +1,6 @@
 const CONFIG = require('../config');
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('ajedrezdb', `${CONFIG.duser}`, `${CONFIG.dpass}`, {
+const sequelize = new Sequelize('ajedrezdb', CONFIG.duser, CONFIG.dpass, {
   host: 'localhost',
   dialect: 'postgres',
 });
@@ -42,9 +42,6 @@ const Tournament = sequelize.define('tournament', {
   additionalInfo: {
     type: Sequelize.TEXT,
   },
-  documentOfTournament: {
-    type: Sequelize.BLOB('long'), // not sure about this as it is going to be a document
-  },
   dateCreated: {
     type: Sequelize.DATE,
   },
@@ -55,14 +52,13 @@ module.exports.writeToNewTournamentDB = (ctx) => {
   const date = Date.now();
   const newTournament = new Tournament
     .build({
-      clubCreated: `${tournament.clubCreated}`,
+      nameOfTournament: `${tournament.tournamentName}`,
       location: `${tournament.location}`,
+      clubCreated: `${tournament.clubCreated}`,
       clubPhone: `${tournament.clubPhone}`,
       clubEmail: `${tournament.clubEmail}`,
       startDate: `${tournament.startDate}`,
       endDate: `${tournament.endDate}`,
-      additionalInfo: `${tournament.additionalInfo}`,
-      documentOfTournament: `${tournament.documentOfTournament}`,
       additionalInfo: `${tournament.additionalInfo}`,
       dateRegistered: `${date}`,
     })
