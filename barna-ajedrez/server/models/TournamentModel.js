@@ -1,6 +1,6 @@
 const CONFIG = require('../config');
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('chessdb', `${CONFIG.duser}`, `${CONFIG.dpass}`, {
+const sequelize = new Sequelize('ajedrezdb', `${CONFIG.duser}`, `${CONFIG.dpass}`, {
   host: 'localhost',
   dialect: 'postgres',
 });
@@ -50,8 +50,8 @@ const Tournament = sequelize.define('tournament', {
   },
 });
 
-module.exports = writeToNewTournamentDB = (ctx) => {
-  const { ctx.request.body } = tournament;
+module.exports.writeToNewTournamentDB = (ctx) => {
+  const tournament = ctx.request.body;
   const date = Date.now();
   const newTournament = new Tournament
     .build({
@@ -81,3 +81,10 @@ exports.fetchAllTournaments = () => {
   return Tournament.findAll()
     .then(tournaments => console.log(tournaments));
 };
+exports.updateTournament = (id) => {
+
+};
+
+exports.fetchOneTournament = (id) => {
+
+}

@@ -1,6 +1,6 @@
 const CONFIG = require('../config');
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('chessdb', `${CONFIG.duser}`, `${CONFIG.dpass}`, {
+const sequelize = new Sequelize('ajedrezdb', `${CONFIG.duser}`, `${CONFIG.dpass}`, {
   host: 'localhost',
   dialect: 'postgres',
 });
@@ -43,7 +43,7 @@ const User = sequelize.define('users', {
 });
 
 module.exports = writeToNewUserDB = (ctx) => {
-  const { ctx.request.body } = user;
+  const user = ctx.request.body;
   const date = Date.now();
   const newuser = new User
     .build({

@@ -1,4 +1,4 @@
-const writeToNewUserDB = require('../models/UserModels/CreateNewUserModel');
+const writeToNewUserDB = require('../models/UserModel');
 
 module.exports.createNewUser = async function createNewUser(ctx) {
   try {

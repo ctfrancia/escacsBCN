@@ -1,8 +1,6 @@
-const writeToNewClubDB = require('../models/ClubModels/CreateClubModel');
+const writeToNewClubDB = require('../models/ClubModel');
 
-
-module.exports.createNewClub = async (ctx) => {
-
+module.exports.createNewClub = async ctx => {
   try {
     ctx.response.body = await writeToNewClubDB(ctx);
     ctx.response.status = 201;
@@ -12,14 +10,8 @@ module.exports.createNewClub = async (ctx) => {
   }
 };
 
-module.exports.clubSignin = async (ctx) => {
+module.exports.clubSignin = async ctx => {};
 
-};
+module.exports.deleteClub = async ctx => {};
 
-module.exports.deleteClub = async (ctx) => {
-
-};
-
-module.exports.updateClub = async (ctx) => {
-
-};
+module.exports.updateClub = async ctx => {};

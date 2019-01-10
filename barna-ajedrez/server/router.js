@@ -5,7 +5,7 @@ const tournamentController = require('./controllers/TournamentController');
 const userController = require('./controllers/UserController');
 
 //Club Routes
-router.post('/CreateNewClub', clubController.newClubCreation);
+router.post('/CreateNewClub', clubController.createNewClub);
 router.get('/ClubSign-in', clubController.clubSignin);
 router.delete('/DeleteClub', clubController.deleteClub);
 router.put('/UpdateClub', clubController.updateClub);

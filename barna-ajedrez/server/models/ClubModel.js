@@ -1,6 +1,6 @@
 const CONFIG = require('../config');
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('chessdb', `${CONFIG.duser}`, `${CONFIG.dpass}`, {
+const sequelize = new Sequelize('ajedrezdb', `${CONFIG.duser}`, `${CONFIG.dpass}`, {
   host: 'localhost',
   dialect: 'postgres',
 });

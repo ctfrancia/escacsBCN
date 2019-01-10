@@ -1,7 +1,13 @@
-const writeToNewTournamentDB = require('../models/TournamentModels/CreateNewTournamentModel');
-const fetchAllTournaments = require('../models/TournamentModels/fetchAllTournamentsModel');
+// const writeToNewTournamentDB = require('');
+const {
+  fetchAllTournaments,
+  writeToNewTournamentDB,
+  deleteTournament,
+  updateTournament,
+  fetchOneTournament
+} = require('../models/TournamentModel');
 
-exports.getAllTournaments = async (ctx) => {
+exports.getAllTournaments = async ctx => {
   try {
     ctx.response.body = await fetchAllTournaments();
     ctx.status = 200;
@@ -11,7 +17,6 @@ exports.getAllTournaments = async (ctx) => {
   }
 };
 module.exports.createTournament = async function postToDB(ctx) {
-
   try {
     await writeToNewTournamentDB(ctx);
     ctx.response.status = 201;
@@ -21,14 +26,32 @@ module.exports.createTournament = async function postToDB(ctx) {
   }
 };
 
-module.exports.getOneTournament = async (ctx) => {
+exports.getOneTournament = async ctx => {
+  const id = ctx.tournament.id;
+  try {
+    await fetchOneTournament(id)
 
-}
+  } catch (e) {
 
-module.exports.deleteTournament = async (ctx) => {
-
+  }
 };
 
-module.exports.updateTournament = async (ctx) => {
+exports.deleteTournament = async ctx => {
+  const id = ctx.tournament.id;
+  try {
+    await deleteTournament(id);
+  } catch(e) {
+    console.log(e);
 
+  }
+};
+
+exports.updateTournament = async ctx => {
+  const id = ctx.id
+  try {
+    await updateTournament(id);
+  } catch(e) {
+    console.log(e);
+
+  }
 };
