@@ -11,45 +11,33 @@ const defaultState = {
   }
 };
 
-const TournamentReducer = (state = defaultState, action) => {
+const TournamentReducer = (state = defaultState.tournaments, action) => {
   switch (action.type) {
     case 'ADD_NEW_TOURNAMENT':
-      return {
-        tournaments: [...state.tournaments, action.tournament]
-      };
+      return [...state, action.tournaments];
 
     case 'FETCH_TOURNAMENT_LIST':
-      return {
-        tournaments: [...state.tournaments, ...action.tournament]
-      };
+      return [...state, ...action.tournaments];
 
     case 'UPDATE_TOURNAMENT_LIST':
-      return {
-        tournaments: [...state.tournaments, action.tournaments]
-      };
+      return[...state, action.tournaments];
 
     default:
       return state;
   }
 };
 
-const authorizationReducer = (state = defaultState, action) => {
+const authorizationReducer = (state = defaultState.authorization, action) => {
   switch (action.type) {
     case 'SIGN_IN':
       return{
-        ...state,
-        authorization: {
           user: `${action.username}`,
           auth_token: `${action.auth_token}`
-        }
       }
     case 'SIGN_OUT':
       return{
-        ...state,
-        authorization: {
           user: '',
           auth_token: ''
-        }
       };
 
     default:
@@ -57,22 +45,16 @@ const authorizationReducer = (state = defaultState, action) => {
   }
 };
 
-const pagesReducer = (state = defaultState, action) => {
+const pagesReducer = (state = defaultState.pages, action) => {
   switch (action.type) {
     case 'IS_LOADING':
       return {
-        ...state,
-        pages: {
           loading: true
-        }
       };
 
     case 'DONE_LOADING':
       return {
-        ...state,
-        pages: {
           loading: false
-        }
       }
 
     default:

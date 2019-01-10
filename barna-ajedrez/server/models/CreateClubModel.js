@@ -1,4 +1,4 @@
-const CONFIG = require('../../config');
+const CONFIG = require('../config');
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize('chessdb', `${CONFIG.duser}`, `${CONFIG.dpass}`, {
   host: 'localhost',
@@ -49,7 +49,7 @@ const Club = sequelize.define('club', {
     type: Sequelize.DATE,
   },
 });
-module.exports = writeToNewClubDB = (ctx) => {
+module.exports.writeToNewClubDB = (ctx) => {
 
   // const { ctx.request.body } = club;
   const date = Date.now();

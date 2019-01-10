@@ -1,4 +1,4 @@
-const CONFIG = require('../../config');
+const CONFIG = require('../config');
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize('chessdb', `${CONFIG.duser}`, `${CONFIG.dpass}`, {
   host: 'localhost',
@@ -70,4 +70,14 @@ module.exports = writeToNewTournamentDB = (ctx) => {
     .save()
     .then(() => console.log('Created successfully'))
     .catch(err => console.log('OOPS!', err));
+};
+
+exports.deleteTournament = (id) => {
+  //return Tournament.findAll().then(tournaments => console.log(tournaments));
+  //here we will find the tournament by id and delete it from SB
+};
+
+exports.fetchAllTournaments = () => {
+  return Tournament.findAll()
+    .then(tournaments => console.log(tournaments));
 };

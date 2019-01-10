@@ -11,7 +11,7 @@ export const updateTournamentList = (tournaments) => (
   console.log('UDPATE TOURNAMENT ACTION',tournaments),
 {
   type: 'UPDATE_TOURNAMENT_LIST',
-  tournaments: tournaments,
+  tournaments,
 });
 
 export const fetchTournamentList = () => ({
