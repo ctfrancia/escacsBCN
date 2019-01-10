@@ -20,7 +20,7 @@ class UpdateTournamentListButton extends Component {
     return (
       <div>
         <button onClick={this.getTournamentList}>
-          click to refresh Tournament list
+          <p>Actualizar lista de torneos</p>
         </button>
       </div>
     );

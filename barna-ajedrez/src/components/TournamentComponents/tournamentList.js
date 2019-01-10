@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchTournamentList, updateTournamentList } from '../../actions/actions';
+import { updateTournamentList } from '../../actions/actions';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import TournamentItem from './tournamentitem';
@@ -29,16 +29,12 @@ componentDidMount() {
   }
 }
 
-//right now state is my reducers looks like each reducer has it's own state
-//we have to say the reducer that we are interested in fetching the information
 const mapStateToProps = state => (
-  console.log('MAP STATE TO PROPS STATE', state),
+  // console.log('MAP STATE TO PROPS STATE', state),
   {
   tournamentInfo: state.tournamentAction
 });
-//the data is being received here
 const mapDispatchToProps = dispatch => ({
-  // fetchTournamentList: tournaments => dispatch(fetchTournamentList(tournaments)),
   updateTournamentList: tournaments => dispatch(updateTournamentList(tournaments)),
 });
 

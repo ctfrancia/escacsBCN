@@ -8,7 +8,7 @@ export const addNewTournament = tournament => ({
 //argument is getting passed as an full payload object
 export const updateTournamentList = (tournaments) => (
   //it's being reveived here
-  console.log('UDPATE TOURNAMENT ACTION',tournaments),
+  // console.log('UDPATE TOURNAMENT ACTION',tournaments),
 {
   type: 'UPDATE_TOURNAMENT_LIST',
   tournaments,
