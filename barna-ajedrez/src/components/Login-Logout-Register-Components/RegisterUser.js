@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
-import RegisterUserForm from './RegisterUserForm';
-import SigninForm from './SigninForm';
+import CreateNewUser from './CreateNewUser';
+import LoginForm from './LoginForm';
 
 class RegisterUserOrSignin extends Component {
-
-
   render() {
     return (
       <div>
-        <RegisterUserForm />
+        <CreateNewUser />
         text
-        <SigninForm />
+        <LoginForm />
       </div>
     );
   }

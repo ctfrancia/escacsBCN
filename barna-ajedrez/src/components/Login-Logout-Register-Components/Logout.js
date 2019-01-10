@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LogoutButton from './LogOutForm';
+import LogoutButton from './LogOutButton';
 
 class Logout extends Component {
 

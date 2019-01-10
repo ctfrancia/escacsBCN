@@ -4,8 +4,13 @@ const bodyParser = require('koa-bodyparser');
 const router = require('./router');
 const PORT = 3001;
 const logger = require('koa-logger');
+const cors = require('koa-cors');
+// const corsOptions = ({
+
+// })
 
 app
+  .use(cors({origin: 'http://localhost:3000'}))
   .use(logger())
   .use(bodyParser())
   .use(router.routes());

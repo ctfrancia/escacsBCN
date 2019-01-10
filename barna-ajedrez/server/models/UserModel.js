@@ -47,6 +47,7 @@ const User = sequelize.define('users', {
 module.exports.writeToNewUserDB = (ctx) => {
   const user = ctx.request.body;
   const date = Date.now();
+  //FIXME: USER.BUILD IS NOT A CONSTRUCTOR
   const newuser = new User
     .build({
       fName: `${user.fName}`,

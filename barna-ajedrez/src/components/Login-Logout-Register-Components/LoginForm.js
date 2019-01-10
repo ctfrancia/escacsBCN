@@ -7,6 +7,9 @@ class LoginForm extends Component {
     return (
       <div className="container">
         login form goes here
+        <form>
+
+        </form>
       </div>
     );
   }
