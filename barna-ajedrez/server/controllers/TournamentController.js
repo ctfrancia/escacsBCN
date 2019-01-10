@@ -10,7 +10,7 @@ exports.getAllTournaments = async (ctx) => {
     console.log('OOPS! ', e.stack);
   }
 };
-module.exports.postToDB = async function postToDB(ctx) {
+module.exports.createTournament = async function postToDB(ctx) {
 
   try {
     await writeToNewTournamentDB(ctx);
@@ -21,15 +21,14 @@ module.exports.postToDB = async function postToDB(ctx) {
   }
 };
 
+module.exports.getOneTournament = async (ctx) => {
 
-module.exports.clubSignin = async (ctx) => {
+}
+
+module.exports.deleteTournament = async (ctx) => {
 
 };
 
-module.exports.deleteClub = async (ctx) => {
-
-};
-
-module.exports.updateClub = async (ctx) => {
+module.exports.updateTournament = async (ctx) => {
 
 };

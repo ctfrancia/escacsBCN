@@ -11,14 +11,14 @@ module.exports.createNewUser = async function createNewUser(ctx) {
 };
 
 
-module.exports.clubSignin = async (ctx) => {
+module.exports.signinUser = async (ctx) => {
 
 };
 
-module.exports.deleteClub = async (ctx) => {
+module.exports.deleteUser = async (ctx) => {
 
 };
 
-module.exports.updateClub = async (ctx) => {
+module.exports.updateUser = async (ctx) => {
 
 };
