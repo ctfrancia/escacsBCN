@@ -1,4 +1,4 @@
-const CONFIG = require('../config');
+const CONFIG = require('../../config');
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize('chessdb', `${CONFIG.duser}`, `${CONFIG.dpass}`, {
   host: 'localhost',
@@ -51,12 +51,12 @@ const Club = sequelize.define('club', {
 });
 module.exports = writeToNewClubDB = (ctx) => {
 
-  const { ctx.request.body } = club;
+  // const { ctx.request.body } = club;
   const date = Date.now();
   const newClub = new Club
-    .build({ 
-      nameOfClub: `${club.name}`, 
-      location: `${club.location}`, 
+    .build({
+      nameOfClub: `${club.name}`,
+      location: `${club.location}`,
       organizerName: `${club.organizerName}` ,
       clubNumber: `${club.clubNumber}`,
       clubEmail: `${club.clubEmail}`,

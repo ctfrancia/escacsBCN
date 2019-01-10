@@ -1,4 +1,4 @@
-const CONFIG = require('../config');
+const CONFIG = require('../../config');
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize('chessdb', `${CONFIG.duser}`, `${CONFIG.dpass}`, {
   host: 'localhost',
@@ -59,4 +59,4 @@ module.exports = writeToNewUserDB = (ctx) => {
     .save()
     .then(() => console.log('Created successfully'))
     .catch(err => console.log('OOPS!', err));
-}; 
+};
