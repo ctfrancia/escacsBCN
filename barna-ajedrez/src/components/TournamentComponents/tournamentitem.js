@@ -6,8 +6,33 @@ class TournamentItem extends Component {
   render() {
     return (
       <div>
-        {this.props.tournamentName}
+        <div>
+          {this.props.tournamentName}
+        </div>
 
+        <div>
+          {this.props.location}
+        </div>
+
+        <div>
+          {this.props.clubPhone}
+        </div>
+
+        <div>
+          {this.props.clubEmail}
+        </div>
+
+        <div>
+          {this.props.startDate}
+        </div>
+
+        <div>
+          {this.props.additionalInfo}
+        </div>
+
+        <div>
+          {this.props.dateCreated}
+        </div>
       </div>
     );
   }

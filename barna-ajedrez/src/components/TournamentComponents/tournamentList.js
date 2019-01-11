@@ -29,6 +29,12 @@ componentDidMount() {
           <TournamentItem
             key={tournamentEl.id}
             tournamentName={tournamentEl.nameOfTournament}
+            location={tournamentEl.location}
+            clubPhone={tournamentEl.clubPhone}
+            clubEmail={tournamentEl.clubEmail}
+            startDate={tournamentEl.startDate}
+            additionalInfo={tournamentEl.additionalInfo}
+            dateCreated={tournamentEl.dateCreated}
           />
           )}
       </div>
