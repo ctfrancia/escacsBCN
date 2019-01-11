@@ -17,17 +17,13 @@ class CreateNewUser extends Component {
 }
 handleSubmit = (e) => {
   e.preventDefault();
-  // checks are working before sending to back end
-  // const pChecker = (this.state.password === this.state.password2) ? true : false;
-  // const eChecker = (this.state.email === this.state.email2) ? true : false;
-  // console.log(pChecker);
+  const pChecker = (this.state.password === this.state.password2) ? true : false;
+  const eChecker = (this.state.email === this.state.email2) ? true : false;
+  console.log(pChecker);
 
-  // if (!pChecker) alert('please make sure that your passwords match');
-  // if (!eChecker) alert('please make sure that your emails are the same');
+  if (!pChecker) alert('please make sure that your passwords match');
+  if (!eChecker) alert('please make sure that your emails are the same');
   const value = this.state;
-
-
-  console.log(value);
 
   axios
   .post('http://localhost:3001/CreateNewUser',{
@@ -52,58 +48,9 @@ handleSubmit = (e) => {
 handleChange = (e) => {
   console.log(e.target.name);
   let value = e.target.value;
+  let name = e.target.name;
 
-  switch (e.target.name) {
-    case 'fName':
-    console.log('switch case value first name ',value);
-
-      this.setState({fName: value});
-      break;
-
-    case 'lName':
-    console.log('switch case value last name ',value);
-
-      this.setState({lName: value});
-      break;
-    case 'password':
-    console.log('switch case value first name ',value);
-
-      this.setState({password: value});
-      break;
-
-    case 'password2':
-    console.log('switch case value first name ',value);
-
-      this.setState({password2: value});
-      break;
-
-    case 'email':
-    console.log('switch case value first name ',value);
-
-      this.setState({email: value});
-      break;
-
-    case 'email2':
-    console.log('switch case value first name ',value);
-
-      this.setState({email2: value});
-      break;
-
-    case 'neighborhood':
-    console.log('switch case value first name ',value);
-
-      this.setState({ neighborhood: value});
-      break;
-
-    case 'club':
-    console.log('switch case value first name ',value);
-
-      this.setState({ club: value});
-      break;
-
-    default:
-      break;
-  }
+  this.setState({ [name]: value });
 }
 
 
