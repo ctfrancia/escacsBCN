@@ -6,8 +6,6 @@ const {
 } = require('../models/UserModel');
 
 module.exports.createNewUser = async function createNewUser(ctx) {
-
-
   // console.log('user controller body: ',ctx.request.body);
   try {
     const wasWritten = await writeToNewUserDB(ctx);

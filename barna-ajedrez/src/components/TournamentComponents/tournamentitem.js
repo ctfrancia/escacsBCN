@@ -6,7 +6,7 @@ class TournamentItem extends Component {
   render() {
     return (
       <div>
-        {this.props.tournamentQuote}
+        {this.props.tournamentName}
 
       </div>
     );

@@ -8,29 +8,37 @@ class TournamentList extends Component {
   //chucknorris representing api call to my back end
 componentDidMount() {
   axios
-    .get('https://api.chucknorris.io/jokes/random')
+    .get('http://localhost:3001/GetTournamentList')
     .then((payload) => {
       console.log('initial fetch', payload);
-      this.props.updateTournamentList(payload.data);
+
+      this.props.updateTournamentList(payload);
     });
 }
 
   render() {
+    let tournament = this.props.tournamentInfo[0];
+    console.log('THIS IS tournament info', tournament)
+    if(tournament === undefined) {
+      return (<div> loading... </div>)
+    } else {
+    console.log('THIS IS tournament info', tournament.data)
     return (
       <div>
-        {this.props.tournamentInfo.map(tournament =>
+        {tournament.data.map(tournamentEl =>
           <TournamentItem
-            key={tournament.id}
-            tournamentQuote={tournament.value}
+            key={tournamentEl.id}
+            tournamentName={tournamentEl.nameOfTournament}
           />
           )}
       </div>
     );
   }
 }
+}
 
 const mapStateToProps = state => (
-  // console.log('MAP STATE TO PROPS STATE', state),
+  console.log('MAP STATE TO PROPS STATE', state.tournamentAction),
   {
   tournamentInfo: state.tournamentAction
 });

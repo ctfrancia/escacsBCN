@@ -1,79 +1,101 @@
 const CONFIG = require('../config');
+const moment = require('moment');
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize('ajedrezdb', CONFIG.duser, CONFIG.dpass, {
   host: 'localhost',
   dialect: 'postgres',
+  define: {
+    timestamps: false
+  }
 });
 
 const Tournament = sequelize.define('tournament', {
   id: {
     type: Sequelize.BIGINT,
     primaryKey: true,
-    autoIncrement: true,
+    autoIncrement: true
   },
   nameOfTournament: {
-    type: Sequelize.STRING,
-  },
-  location: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING
   },
   clubCreated: {
-    type: Sequelize.BOOLEAN,
+    type: Sequelize.BOOLEAN
+  },
+  location: {
+    type: Sequelize.STRING
   },
   clubPhone: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.INTEGER
   },
   clubEmail: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING
   },
   startDate: {
-    type: Sequelize.DATE,
-  },
-  endDate: {
-    type: Sequelize.DATE,
+    type: Sequelize.DATE
   },
   additionalInfo: {
-    type: Sequelize.TEXT,
+    type: Sequelize.TEXT
   },
   dateCreated: {
     type: Sequelize.DATE,
-  },
+    defaultValue: Sequelize.NOW
+  }
 });
 
-module.exports.writeToNewTournamentDB = (ctx) => {
-  const tournament = ctx.request.body;
-  const date = Date.now();
-  const newTournament = new Tournament
-    .build({
-      nameOfTournament: `${tournament.tournamentName}`,
-      location: `${tournament.location}`,
-      clubCreated: `${tournament.clubCreated}`,
-      clubPhone: `${tournament.clubPhone}`,
-      clubEmail: `${tournament.clubEmail}`,
-      startDate: `${tournament.startDate}`,
-      endDate: `${tournament.endDate}`,
-      additionalInfo: `${tournament.additionalInfo}`,
-      dateRegistered: `${date}`,
-    })
-    //saving to DB
-    .save()
-    .then(() => console.log('Created successfully'))
-    .catch(err => console.log('OOPS!', err));
+module.exports.writeToNewTournamentDB = ctx => {
+  const tInfo = ctx.request.body;
+  console.log(
+    'dfkjgal;kjglkwjrglkhrlkejhglkwjehrlkjhwlkrjhljwhtlekrjhtlwjerhtlwjhrtlkjwh',
+    tInfo.nameOfTournament
+  );
+  moment.locale('es');
+
+
+  const answer = Tournament.findOrCreate({
+    where: {
+      nameOfTournament: tInfo.nameOfTournament
+    },
+    defaults: {
+      nameOfTournament: tInfo.nameOfTournament,
+      clubCreated: tInfo.clubCreated,
+      location: tInfo.location,
+      clubPhone: tInfo.clubPhone,
+      clubEmail: tInfo.clubEmail,
+      startDate: tInfo.startDate,
+      additionalInfo: tInfo.additionalInfo
+    }
+  }).spread((t, created) => {
+    console.log('asdfasdfasdfasdfa', t);
+
+    console.log(t.get({ plain: true }));
+
+    console.log('THIS IS IF IT IS CREATED', created);
+
+    return created;
+  });
+  return answer;
 };
 
-exports.deleteTournament = (id) => {
+exports.deleteTournament = id => {
   //return Tournament.findAll().then(tournaments => console.log(tournaments));
   //here we will find the tournament by id and delete it from SB
 };
 
 exports.fetchAllTournaments = () => {
-  return Tournament.findAll()
-    .then(tournaments => console.log(tournaments));
+
+  const payload = Tournament
+    // .findOrCreate()
+    // .then(el => {
+    //   console.log(el);
+
+    // })
+    .findAll()
+    .then(tournaments => {
+      console.log('THIS IS THE TOURNAMENTSASDFHASDHFAHSDFKJAFKDSJFLAKSJDFLKAJSDF', tournaments);
+      return tournaments;
+    });
+  return payload;
 };
-exports.updateTournament = (id) => {
+exports.updateTournament = id => {};
 
-};
-
-exports.fetchOneTournament = (id) => {
-
-}
+exports.fetchOneTournament = id => {};

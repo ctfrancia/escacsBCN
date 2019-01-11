@@ -19,7 +19,7 @@ router.put('/UpdateUser', userController.updateUser);
 //Tournament routes
 router.post('/CreateTournament', tournamentController.createTournament);
 router.get('/GetTournamentList', tournamentController.getAllTournaments);
-router.get('/GetTournaments/:id', tournamentController.getOneTournament);
+router.get('/GetTournament/:id', tournamentController.getOneTournament);
 router.delete('/DeleteTournament', tournamentController.deleteTournament);
 router.put('/UpdateTournament', tournamentController.updateTournament);
 

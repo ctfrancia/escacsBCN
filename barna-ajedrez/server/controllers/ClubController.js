@@ -1,9 +1,15 @@
-const writeToNewClubDB = require('../models/ClubModel');
+const {writeToNewClubDB} = require('../models/ClubModel');
 
 module.exports.createNewClub = async ctx => {
+
   try {
-    ctx.response.body = await writeToNewClubDB(ctx);
-    ctx.response.status = 201;
+    const wasWritten = await writeToNewClubDB(ctx);
+    console.log('WAS WRITTEN CONST ', wasWritten);
+    if (!wasWritten) {
+      ctx.response.status = 409;
+    } else {
+      ctx.response.status = 201;
+    }
   } catch (e) {
     console.log(e.stack);
     ctx.response.status = 500;

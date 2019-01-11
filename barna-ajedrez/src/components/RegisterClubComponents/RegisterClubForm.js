@@ -35,10 +35,12 @@ class RegisterClubForm extends Component {
     // checks are working before sending to back end
     // const pChecker = (this.state.password === this.state.password2) ? true : false;
     // const eChecker = (this.state.clubEmail === this.state.clubEmail2) ? true : false;
+    // const nChecker = (this.state.clubNumber === this.state.clubNumber2) ? true : false;
     // console.log(pChecker);
 
     // if (!pChecker) alert('please make sure that your passwords match');
     // if (!eChecker) alert('please make sure that your emails are the same');
+    // if (!nChecker) alert('please make sure that the phone numbers are the same');
     const value = this.state;
 
     console.log(value);
@@ -108,7 +110,7 @@ class RegisterClubForm extends Component {
           </div>
           Sitio Web:{' '}                               <input name="website" type="text" onChange={this.handleChange} value={this.state.value} club="club"/>
           Más información:{' '}                         <textarea rows="4" cols="50" name="additionalInfo" type="text" onChange={this.handleChange} value={this.state.value} club="club" />
-                                                        <input type="submit" value="Enviar" onClick={this.handleSubmit} />
+          <input type="submit" value="Enviar" onClick={this.handleSubmit} />
         </form>
       </div>
     );

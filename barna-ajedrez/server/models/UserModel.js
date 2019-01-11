@@ -7,7 +7,6 @@ const sequelize = new Sequelize('ajedrezdb', CONFIG.duser, CONFIG.dpass, {
     timestamps: false
   }
 });
-console.log(CONFIG.duser);
 
 const User = sequelize.define('user', {
   id: {
@@ -45,8 +44,7 @@ const User = sequelize.define('user', {
 
 module.exports.writeToNewUserDB = (ctx) => {
   const userInfo = ctx.request.body;
-
-  console.log(ctx.request.body);
+  // console.log(ctx.request.body);
 
   const answer = User.findOrCreate({
     where: {

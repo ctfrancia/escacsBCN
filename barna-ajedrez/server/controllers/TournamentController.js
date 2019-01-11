@@ -17,13 +17,22 @@ exports.getAllTournaments = async ctx => {
   }
 };
 module.exports.createTournament = async function postToDB(ctx) {
+
+
   try {
-    await writeToNewTournamentDB(ctx);
-    ctx.response.status = 201;
+    const wasWritten = await writeToNewTournamentDB(ctx);
+    console.log('THIS IS INSIDE OF THE CONTROLLER',wasWritten);
+
+    if(!wasWritten) {
+      ctx.response.status = 409;
+    } else {
+      ctx.response.status = 201;
+    }
   } catch (e) {
     console.log(e.stack);
     ctx.response.status = 500;
   }
+
 };
 
 exports.getOneTournament = async ctx => {
