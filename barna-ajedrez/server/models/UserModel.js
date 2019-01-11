@@ -3,19 +3,13 @@ const Sequelize = require('sequelize');
 const sequelize = new Sequelize('ajedrezdb', CONFIG.duser, CONFIG.dpass, {
   host: 'localhost',
   dialect: 'postgres',
+  define: {
+    timestamps: false
+  }
 });
 console.log(CONFIG.duser);
 
-sequelize
-  .authenticate()
-  .then(() => {
-    console.log('Connection has been established successfully.');
-  })
-  .catch((err) => {
-    console.error('Unable to connect to the database:', err);
-  });
-
-const User = sequelize.define('users', {
+const User = sequelize.define('user', {
   id: {
     type: Sequelize.BIGINT,
     primaryKey: true,
@@ -41,27 +35,41 @@ const User = sequelize.define('users', {
   },
   dateCreated: {
     type: Sequelize.DATE,
+    defaultValue: Sequelize.NOW
   },
+  clubOwner: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false,
+  }
 });
 
 module.exports.writeToNewUserDB = (ctx) => {
-  const user = ctx.request.body;
-  const date = Date.now();
-  //FIXME: USER.BUILD IS NOT A CONSTRUCTOR
-  const newuser = new User
-    .build({
-      fName: `${user.fName}`,
-      lName: `${user.lName}`,
-      password: `${user.password}`,
-      email: `${user.email}`,
-      neighborhood: `${user.neighborhood}`,
-      club: `${user.club}`,
-      dateCreated: `${date}`,
-    })
-    //saving to DB
-    .save()
-    .then(() => console.log('Created successfully'))
-    .catch(err => console.log('OOPS!', err));
+  const userInfo = ctx.request.body;
+
+  console.log(ctx.request.body);
+
+  const answer = User.findOrCreate({
+    where: {
+      email: userInfo.email
+    },
+    defaults:{
+      fName:userInfo.fName,
+      lName:userInfo.lName,
+      password:userInfo.password,
+      email:userInfo.email,
+      neighborhood:userInfo.neighborhood,
+      club:userInfo.club,
+    }
+}).spread((user, created) => {
+  console.log(user.get({
+    plain:true
+  }));
+
+  return created;
+});
+
+  return answer;
+
 };
 exports.signIntoDB = (id) => {
 const userID = id;

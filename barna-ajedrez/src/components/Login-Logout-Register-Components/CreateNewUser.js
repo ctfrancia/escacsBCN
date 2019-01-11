@@ -18,14 +18,16 @@ class CreateNewUser extends Component {
 handleSubmit = (e) => {
   e.preventDefault();
   // checks are working before sending to back end
-  const pChecker = (this.state.password === this.state.password2) ? true : false;
-  const eChecker = (this.state.email === this.state.email2) ? true : false;
-  console.log(pChecker);
+  // const pChecker = (this.state.password === this.state.password2) ? true : false;
+  // const eChecker = (this.state.email === this.state.email2) ? true : false;
+  // console.log(pChecker);
 
-  if (!pChecker) alert('please make sure that your passwords match');
-  if (!eChecker) alert('please make sure that your emails are the same');
+  // if (!pChecker) alert('please make sure that your passwords match');
+  // if (!eChecker) alert('please make sure that your emails are the same');
   const value = this.state;
 
+
+  console.log(value);
 
   axios
   .post('http://localhost:3001/CreateNewUser',{
@@ -37,9 +39,14 @@ handleSubmit = (e) => {
     club: value.club
   })
   .then((res) => {
-    console.log(res);
+    console.log(res)
+    alert('Account Created Successfully');
   })
-  .catch(err => console.log(err));
+  .catch(err => {
+    // properly receives
+    console.log('this is the error',err)
+    alert('Email exists');
+  });
 }
 
 handleChange = (e) => {

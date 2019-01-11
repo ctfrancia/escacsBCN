@@ -6,9 +6,17 @@ const {
 } = require('../models/UserModel');
 
 module.exports.createNewUser = async function createNewUser(ctx) {
+
+
+  // console.log('user controller body: ',ctx.request.body);
   try {
-    await writeToNewUserDB(ctx);
-    ctx.response.status = 201;
+    const wasWritten = await writeToNewUserDB(ctx);
+    console.log('WAS WRITTEN CONST ', wasWritten);
+    if (wasWritten === false) {
+      ctx.response.status = 409;
+    } else {
+      ctx.response.status = 201;
+    }
   } catch (e) {
     console.log(e.stack);
     ctx.response.status = 500;

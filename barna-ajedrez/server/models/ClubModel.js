@@ -33,6 +33,9 @@ const Club = sequelize.define('club', {
   clubEmail: {
     type: Sequelize.STRING,
   },
+  password: {
+    type: Sequelize.STRING,
+  },
   languages: {
     type: Sequelize.ARRAY(Sequelize.STRING),
   },
@@ -47,6 +50,7 @@ const Club = sequelize.define('club', {
   },
   dateRegistered: {
     type: Sequelize.DATE,
+    defaultValue: Sequelize.NOW
   },
 });
 module.exports.writeToNewClubDB = (ctx) => {
