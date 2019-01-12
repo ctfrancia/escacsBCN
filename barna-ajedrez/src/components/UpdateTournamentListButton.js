@@ -9,7 +9,7 @@ class UpdateTournamentListButton extends Component {
   getTournamentList = () => {
     console.log('get request from button');
     axios
-      .get('https://api.chucknorris.io/jokes/random')
+      .get('http://localhost;3001/GetTournamentList')
       .then(payload => {
         console.log('fetch from button', payload);
         this.props.updateTournamentList(payload.data);

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TournamentList from './tournamentList';
 import { Link } from '@reach/router';
 import UpdateTournamentListButton from '../UpdateTournamentListButton';
+// import CreateTournamentform from './TournamentComponents/createtournamentform';
 
 class TournamentContainer extends Component {
   render() {
@@ -11,8 +12,8 @@ class TournamentContainer extends Component {
         <Link to="CreateNewTournament">Create New Tournament</Link>
         {this.props.children}
         <UpdateTournamentListButton />
-        <p> Here is where the tournaments will be listed </p>
 
+        <p> Current List of the Tournaments within Barcelona </p>
         <TournamentList />
       </div>
     );

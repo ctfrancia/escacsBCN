@@ -1,5 +1,18 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import HorizontalLabelPositionBelowStepper from './CreateUserStepper'
+
+// const styles = theme => ({
+//   container: {
+//     display: 'flex',
+//     flexWrap: 'wrap',
+//   },
+//   textField: {
+//     marginLeft: theme.spacing.unit,
+//     marginRight: theme.spacing.unit,
+//   },
+// });
+
 
 class CreateNewUser extends Component {
   constructor(props) {
@@ -58,18 +71,7 @@ handleChange = (e) => {
   render() {
     return (
       <div className="container">
-        <form>
-          Nombre:              <input name="fName"        type="text" onChange={this.handleChange}     value={this.state.value} fname="fName"  />
-          Apellido(s):         <input name="lName"        type="text" onChange={this.handleChange}     value={this.state.value} lname="lName" />
-          Contraseña:          <input name="password"     type="password" onChange={this.handleChange} value={this.state.value} password="password" />
-          Verificar Contraseña: <input name="password2"    type="password" onChange={this.handleChange} value={this.state.value} password="password" />
-          Email:               <input name="email"        type="email" onChange={this.handleChange}    value={this.state.value} email="email" />
-          Verificar Email:      <input name="email2"       type="email" onChange={this.handleChange}    value={this.state.value} email="email" />
-          Barrio(opcional):    <input name="neighborhood" type="text" onChange={this.handleChange}     value={this.state.value} neighborhood="neighborhood" />
-          Club(opcional):      <input name="club"         type="text" onChange={this.handleChange}     value={this.state.value} club="club" />
-
-          <input type="submit" value="Enviar" onClick={this.handleSubmit} />
-        </form>
+        {/* <HorizontalLabelPositionBelowStepper /> */}
       </div>
     );
   }
