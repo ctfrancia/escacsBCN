@@ -6,7 +6,7 @@ import NavBar from './navcomponent';
 export default class Desktop extends Component {
   render() {
     return (
-      <div className="container">
+      <div className="desktop-container">
           <NavBar />
       </div>
     );

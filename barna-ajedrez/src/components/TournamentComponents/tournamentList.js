@@ -3,15 +3,13 @@ import { updateTournamentList } from '../../actions/actions';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import TournamentItem from './tournamentitem';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import LinearProgress from '@material-ui/core/LinearProgress';
 
-const styles = {
-  root: {
-    flexGrow: 1
-  }
-};
+// const styles = {
+//   root: {
+//     flexGrow: 1
+//   }
+// };
 
 class TournamentList extends Component {
   //chucknorris representing api call to my back end
@@ -31,7 +29,7 @@ class TournamentList extends Component {
     } else {
       console.log('THIS IS tournament info', tournament.data);
       return (
-        <div>
+        <div id="ti-container">
           {tournament.data.map(tournamentEl => (
             <TournamentItem
               key={tournamentEl.id}
@@ -51,7 +49,7 @@ class TournamentList extends Component {
 }
 
 const mapStateToProps = state => (
-  console.log('MAP STATE TO PROPS STATE', state.tournamentAction),
+  // console.log('MAP STATE TO PROPS STATE', state.tournamentAction),
   {
     tournamentInfo: state.tournamentAction
   }

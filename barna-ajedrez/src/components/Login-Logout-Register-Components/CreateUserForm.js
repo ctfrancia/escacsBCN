@@ -55,13 +55,23 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
         alert('Email exists');
       });
   }
-
+//FIXME: STYLE ALL THIS!!!!!!!!!!
   render() {
     return (
       <div className="container">
         <h1>create accout</h1>
         <form>
-          <div>
+          <div className="input-container">
+
+          {inputFields.map(input =>
+            <div key={input.id} className="input-div">
+              {input.spanish}
+              <input />
+
+            </div>
+            )}
+          </div>
+          {/* <div>
             {inputFields.map(input =>
               <p>{input.spanish}</p>
               )}
@@ -70,7 +80,7 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
             {inputFields.map(input =>
             <input key={input.id} />
             )}
-          </div>
+          </div> */}
         </form>
       </div>
     );

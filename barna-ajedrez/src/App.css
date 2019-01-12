@@ -1,6 +1,39 @@
+html{
+  background-color: purple;
+  height: 100%;
+}
+
 .App {
-  display: flex;
-  flex-direction: column;
+  height: 100%;
+  /* display: flex;
+  flex-direction: column; */
   /* justify-content: space-between; */
   /* text-align: center; */
+  background-color: gray;
+}
+
+.nav-container{
+  display:flex;
+  padding: 2%;
+  background-color: aqua;
+  justify-content: space-between;
+}
+
+.nav-button{
+  padding: 0 10px;
+  font-size: 16px;
+  font-family: 'Abel', 'Thasadith', 'Roboto', sans-serif;
+}
+
+.no-underline{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.the-rest{
+  display:flex;
+}
+
+.input-container{
+  display: flex;
 }
