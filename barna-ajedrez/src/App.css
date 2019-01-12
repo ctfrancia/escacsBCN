@@ -37,3 +37,8 @@ html{
 .input-container{
   display: flex;
 }
+.tContainer{
+  display: flex;
+  border: 1px solid black;
+  border-radius: 25px;
+}
