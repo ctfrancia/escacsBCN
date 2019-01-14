@@ -2,10 +2,9 @@ import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import { updateTournamentList } from '../actions/actions';
 import axios from 'axios';
-// import { updateTournamentList } from '../actions/actions'
+const horse = require('../images/horse.svg');
 
 class UpdateTournamentListButton extends Component {
-
   getTournamentList = () => {
     console.log('get request from button');
     axios
@@ -20,7 +19,8 @@ class UpdateTournamentListButton extends Component {
     return (
       <div>
         <button onClick={this.getTournamentList}>
-          <p>Actualizar lista de torneos</p>
+          <p className="button-font">ACTUALIZAR LISTA DE TORNEOS</p>
+          <img src={horse} alt="horse" className="img-clock"/>
         </button>
       </div>
     );

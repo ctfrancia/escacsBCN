@@ -1,21 +1,21 @@
-html{
-  background-color: purple;
-  height: 100%;
+button{
+  background: none;
+  border: none;
+  color: #ffdd4a;
+  cursor: pointer;
+  font-family:
 }
 
 .App {
   height: 100%;
-  /* display: flex;
-  flex-direction: column; */
-  /* justify-content: space-between; */
-  /* text-align: center; */
-  background-color: gray;
+  background-color: #3c6997;
+  color: aliceblue;
 }
-
+/* Nav bar Start */
 .nav-container{
   display:flex;
   padding: 2%;
-  background-color: aqua;
+  background-color: #5adbff;
   justify-content: space-between;
 }
 
@@ -24,11 +24,11 @@ html{
   font-size: 16px;
   font-family: 'Abel', 'Thasadith', 'Roboto', sans-serif;
 }
-
 .no-underline{
   text-decoration: none;
   cursor: pointer;
 }
+/* Nav bar END */
 
 .the-rest{
   display:flex;
@@ -36,9 +36,73 @@ html{
 
 .input-container{
   display: flex;
+  border: 1px solid red;
 }
+/* Tournament Item Container */
 .tContainer{
-  display: flex;
+  /* display: flex;
   border: 1px solid black;
-  border-radius: 25px;
+  border-radius: 5px;
+  width: 30%;
+  margin: 5px; */
+  display: flex;
+  flex-direction: column;
+  width: 95vw;
+  height: 500px;
+  border: 1px solid black;
+  border-radius: 10px;
+  overflow: scroll;
+  margin: 10px;
+  justify-content: space-between;
+  -webkit-box-shadow: 6px 8px 8px -6px rgba(0,0,0,1);
+  -moz-box-shadow: 6px 8px 8px -6px rgba(0,0,0,1);
+  box-shadow: 6px 8px 8px -6px rgba(0,0,0,1);
+}
+
+/* tournament list container */
+.tl-container{
+display: flex;
+align-self: center;
+}
+/* Tournament container */
+.tc-button-container{
+  display:flex;
+  justify-content: space-around;
+}
+.tc-text{
+  text-align: center;
+  font-family: 'Abel', 'Thasadith', 'Roboto', sans-serif;
+  font-size: 2em;
+
+}
+
+
+.tName,
+.tLocation,
+.tPhone,
+.tEmail,
+.tDate,
+.tInfo,
+.tCreated{
+  /* width: 25vw; */
+  word-wrap: break-word;
+  /* height: 50px; */
+  padding: 5px;
+  /* border: 1px solid red; */
+  /* align-self: center; */
+  align-self: center;
+  text-align: center;
+}
+.button-font{
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
+  font-size: 1.5em;
+}
+
+.hide-overflow{
+  /* overflow: scroll; */
+}
+
+/* ALL IMG MODS ARE BELOW */
+.img-clock{
+  height: 50px;
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './tournamentList.css';
 // import styled from 'emotion';
 // import { jsx } from '@emotion/core';
+import moment from 'moment';
 
 // const Container = styled('div')`
 //   display: flex;
@@ -18,41 +19,45 @@ import './tournamentList.css';
 
 class TournamentItem extends Component {
   render() {
+    // let time = moment(this.props.dateCreated.slice(0, 10)).locale('es');
+    // console.log('Time',time.);
+    let time = this.props.dateCreated.slice(0,10);
+
     return (
       <div className="tContainer">
         <div className="tName">
-          tournament name
+          <h3>tournament name</h3>
           {this.props.tournamentName}
         </div>
 
         <div className="tLocation">
-          location
+          <h3>location</h3>
           {this.props.location}
         </div>
 
         <div className="tPhone">
-          phone number of club
+          <h3>phone number of club</h3>
           {this.props.clubPhone}
         </div>
 
         <div className="tEmail">
-          contact email
+          <h3>contact email</h3>
           {this.props.clubEmail}
         </div>
 
         <div className="tDate">
-          date
+          <h3>date</h3>
           {this.props.startDate}
         </div>
 
-        <div className="tInfo">
-          info
+        <div className="tInfo hide-overflow">
+          <h3>info</h3>
           {this.props.additionalInfo}
         </div>
 
         <div className="tCreated">
-          date created
-          {this.props.dateCreated}
+          <h3>date created</h3>
+          {time}
         </div>
       </div>
     );
