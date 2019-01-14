@@ -166,29 +166,50 @@ align-self: center;
   display: flex;
   flex-direction: column;
 }
-  input[type=text],
-  input[type=tel],
-  input[type=email],
-  input[type=password] {
-  border: 0;
-  box-shadow: -8px 10px 0px -7px #bb9f7a, 8px 10px 0px -7px #bb9f7a;
-  -webkit-transition: box-shadow 0.3s;
-  transition: box-shadow 0.3s;
-  }
+/* .ctf-container{
+  display: flex;
+} */
 
-  input[type=text]:focus{
-  outline: none;
-  box-shadow: -8px 10px 0px -7px #fe9000, 8px 10px 0px -7px #fe9000;
-  }
-  input[type=tel]:focus{
-  outline: none;
-  box-shadow: -8px 10px 0px -7px #fe9000, 8px 10px 0px -7px #fe9000;
-  }
-  input[type=email]:focus{
-  outline: none;
-  box-shadow: -8px 10px 0px -7px #fe9000, 8px 10px 0px -7px #fe9000;
-  }
-  input[type=password]:focus{
-  outline: none;
-  box-shadow: -8px 10px 0px -7px #fe9000, 8px 10px 0px -7px #fe9000;
-  }
+.f-container{
+  display: flex;
+  flex-wrap: wrap;
+  width: 80vw;
+  align-self: center;
+  flex-direction: column;
+
+}
+
+
+input[type=text],
+input[type=tel],
+input[type=email],
+input[type=password] {
+border: 0;
+box-shadow: -8px 10px 0px -7px #bb9f7a, 8px 10px 0px -7px #bb9f7a;
+-webkit-transition: box-shadow 0.3s;
+transition: box-shadow 0.3s;
+}
+
+input[type=text]:focus{
+outline: none;
+box-shadow: -8px 10px 0px -7px #fe9000, 8px 10px 0px -7px #fe9000;
+}
+input[type=tel]:focus{
+outline: none;
+box-shadow: -8px 10px 0px -7px #fe9000, 8px 10px 0px -7px #fe9000;
+}
+input[type=email]:focus{
+outline: none;
+box-shadow: -8px 10px 0px -7px #fe9000, 8px 10px 0px -7px #fe9000;
+}
+input[type=password]:focus{
+outline: none;
+box-shadow: -8px 10px 0px -7px #fe9000, 8px 10px 0px -7px #fe9000;
+}
+.login-form{
+  display: flex;
+  flex-direction: column;
+}
+.pointer{
+  cursor: pointer;
+}

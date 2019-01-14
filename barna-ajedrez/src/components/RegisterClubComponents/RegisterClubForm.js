@@ -239,7 +239,7 @@ class RegisterClubForm extends Component {
             value={this.state.value}
             club="club"
           />
-          <input className="f-input send" type="submit" value="Enviar" onClick={this.handleSubmit} />
+          <input className="f-input pointer send" type="submit" value="Enviar" onClick={this.handleSubmit} />
         </form>
       </div>
     );

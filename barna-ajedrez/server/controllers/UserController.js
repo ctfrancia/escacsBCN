@@ -22,14 +22,24 @@ module.exports.createNewUser = async function createNewUser(ctx) {
 };
 
 module.exports.signinUser = async ctx => {
-  const id = ctx.user.id;
+  console.log(ctx.query);
+
+  const user = ctx.query;
 
   try {
-    await signIntoDB(id);
+    const userExists = await signIntoDB(user);
+    if(userExists === null){
+      // console.log('does not exist!');
+      ctx.response.status = 400;
+    } else {
+      ctx.response.body = userExists;
+      ctx.response.status = 200;
+    }
 
   } catch (e) {
     console.log(e);
   }
+
 };
 module.exports.deleteUser = async ctx => {
   const id = ctx.user.id;

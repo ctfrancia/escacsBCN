@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import TournamentList from './tournamentList';
 import { Link } from '@reach/router';
 import UpdateTournamentListButton from '../UpdateTournamentListButton';
-import './tournamentcontainer.css';
 const image = require('../../images/chess-clock.svg')
 // import CreateTournamentform from './TournamentComponents/createtournamentform';
 

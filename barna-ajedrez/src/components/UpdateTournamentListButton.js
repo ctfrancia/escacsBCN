@@ -8,7 +8,7 @@ class UpdateTournamentListButton extends Component {
   getTournamentList = () => {
     console.log('get request from button');
     axios
-      .get('http://localhost;3001/GetTournamentList')
+      .get('http://localhost:3001/GetTournamentList')
       .then(payload => {
         console.log('fetch from button', payload);
         this.props.updateTournamentList(payload.data);
@@ -20,7 +20,7 @@ class UpdateTournamentListButton extends Component {
       <div>
         <button onClick={this.getTournamentList}>
           <p className="button-font">ACTUALIZAR LISTA DE TORNEOS</p>
-          <img src={horse} alt="horse" className="img-clock"/>
+          <img src={horse} alt="clock" className="img-clock"/>
         </button>
       </div>
     );

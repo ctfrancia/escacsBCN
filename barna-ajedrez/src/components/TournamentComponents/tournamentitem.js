@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import './tournamentList.css';
 // import styled from 'emotion';
 // import { jsx } from '@emotion/core';
-import moment from 'moment';
 
 // const Container = styled('div')`
 //   display: flex;

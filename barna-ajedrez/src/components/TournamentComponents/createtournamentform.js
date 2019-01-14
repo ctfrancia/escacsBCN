@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 // const  moment = require('moment');
-import DatePicker from 'react-date-picker'
+// import DatePicker from 'react-date-picker'
 
 
 
@@ -16,70 +16,98 @@ class CreateTournamentForm extends Component {
       clubPhone2: '',
       clubEmail: '',
       clubEmail2: '',
-      startDate: new Date(),
+      startDate: '',
       additionalInfo: '',
     }
   }
   handleSubmit = (e) =>{
-    const date = this.state.startDate;
-    console.log(date);
-
-    // const modDate = moment.date(date);
-    // console.log(modDate);
+    // const date = this.state.startDate;
+    // console.log(date);
 
 
-    // const value = this.state;
-    // const eChecker = (this.state.clubEmail === this.state.clubEmail2) ? true : false;
-    // const nChecker = (this.state.clubNumber === this.state.clubNumber2) ? true : false;
 
-    // if (!eChecker) alert('please make sure that your emails are the same');
-    // if (!nChecker) alert('please make sure that the phone numbers are the same');
+    const value = this.state;
+    const eChecker = (this.state.clubEmail === this.state.clubEmail2) ? true : false;
+    const nChecker = (this.state.clubNumber === this.state.clubNumber2) ? true : false;
+
+    if (!eChecker) alert('please make sure that your emails are the same');
+    if (!nChecker) alert('please make sure that the phone numbers are the same');
     e.preventDefault();
-    // axios
-    //   .post('http://localhost:3001/CreateTournament',{
-    //   nameOfTournament: value.nameOfTournament,
-    //   clubCreated: value.clubCreated,
-    //   location: value.location,
-    //   clubPhone: value.clubPhone,
-    //   clubEmail: value.clubEmail,
-    //   startDate: value.startDate,
-    //   additionalInfo: value.additionalInfo,
-    //   })
-    //   .then(res => {
-    //     console.log(res);
-    //     alert('Account Created Successfully');
-    //   })
-    //   .catch(err => {
-    //     // properly receives
-    //     console.log('this is the error', err);
-    //     alert('Email exists');
-    //   });
+    axios
+      .post('http://localhost:3001/CreateTournament',{
+      nameOfTournament: value.nameOfTournament,
+      clubCreated: value.clubCreated,
+      location: value.location,
+      clubPhone: value.clubPhone,
+      clubEmail: value.clubEmail,
+      startDate: value.startDate,
+      additionalInfo: value.additionalInfo,
+      })
+      .then(res => {
+        console.log(res);
+        console.log('Tournament Created Succesfully');
+      })
+      .catch(err => {
+        // properly receives
+        console.log('this is the error', err);
+        alert('Was not able to create tournament try again later');
+      });
   }
 
   handleChange = e => {
+    console.log(e.target.value);
+
     let value = e.target.value;
     let name = e.target.name;
 
     this.setState({ [name]: value })
   };
-  //FIXME: fix the FUCKING DATE PICKING COMPONENT
   handleDateChange = date => this.setState({ startDate: date })
-//<input name="startDate" type="text"         onChange={this.handleChange} value={this.state.value} startdate="startDate" placeholder="DD-MM-YYYY @18h30" />
   render() {
     return (
-      <div className="container">
-        <form>
-          {/* <input name="clubName" type="text" onChange={this.handleChange} value={this.state.value} clubname="clubName" /> */}
-          Nombre del torneo:                       <input name="nameOfTournament" type="text"  onChange={this.handleChange} value={this.state.value} nameoftournament="nameOfTournamet" />
-          Dirección                                <input name="location" type="text"          onChange={this.handleChange} value={this.state.value}  location="location" />
-          Número de teléfono del club:             <input name="clubPhone" type="text"         onChange={this.handleChange} value={this.state.value} clubphone="clubPhone" />
-          Verificar el número de teléfono del club: <input name="clubPhone2" type="text"         onChange={this.handleChange} value={this.state.value} clubphone="clubPhone" />
-          Email del club:                          <input name="clubEmail" type="email"        onChange={this.handleChange} value={this.state.value} clubmmail="clubEmail"  />
-          Verificar el email del club:              <input name="clubEmail2" type="email"        onChange={this.handleChange} value={this.state.value} clubmmail="clubEmail"  />
-          Día y hora:                              <DatePicker onChange={this.handleDateChange} value={this.state.startDate} locale="es-ES" />
-          Más información:                         <textarea rows="5" cols="50" name="additionalInfo" type="text" onChange={this.handleChange} value={this.state.value} additionalinfo="additionalInfo"  />
+      <div className="ctf-container">
+        <form className="f-container">
+          <div className="name-date-div">
+            <div>
+              <p>Nombre del torneo:</p>                       <input className="f-input" name="nameOfTournament" type="text"  onChange={this.handleChange} value={this.state.value} nameoftournament="nameOfTournamet" />
 
-          <input type="submit" value="Enviar" onClick={this.handleSubmit} />
+            </div>
+            <div>
+              <p>Dirección:</p>                                <input className="f-input" name="location" type="text"          onChange={this.handleChange} value={this.state.value}  location="location" />
+
+            </div>
+          </div>
+          <div className="phone-div">
+            <div>
+              <p>Número de teléfono del club:</p>             <input className="f-input" name="clubPhone" type="text"         onChange={this.handleChange} value={this.state.value} clubphone="clubPhone" />
+
+            </div>
+            <div>
+              <p>Verificar el número de teléfono del club:</p><input className="f-input" name="clubPhone2" type="text"         onChange={this.handleChange} value={this.state.value} clubphone="clubPhone" />
+
+            </div>
+          </div>
+          <div className="email-div">
+            <div>
+              <p>Email del club:</p>                          <input className="f-input" name="clubEmail" type="email"        onChange={this.handleChange} value={this.state.value} clubmmail="clubEmail"  />
+
+            </div>
+            <div>
+              <p>Verificar el email del club:</p>             <input className="f-input" name="clubEmail2" type="email"        onChange={this.handleChange} value={this.state.value} clubmmail="clubEmail"  />
+
+            </div>
+
+          </div>
+          <div className="date-div">
+            <p>Día y hora:</p>                              <input className="f-input" name="date" type="text" onChange={this.handleChange} value={this.state.startDate} locale="es-ES" />
+
+          </div>
+          <div className="more-info-div">
+            <p>Más información:</p>                         <textarea className="f-input" rows="5" cols="50" name="additionalInfo" type="text" onChange={this.handleChange} value={this.state.value} additionalinfo="additionalInfo"  />
+
+          </div>
+
+          <input className="f-input pointer"type="submit" value="Enviar" onClick={this.handleSubmit} />
         </form>
       </div>
     );

@@ -31,7 +31,7 @@ const Tournament = sequelize.define('tournament', {
     type: Sequelize.STRING
   },
   startDate: {
-    type: Sequelize.DATE
+    type: Sequelize.STRING
   },
   additionalInfo: {
     type: Sequelize.TEXT
