@@ -12,7 +12,7 @@ class RegisterUserOrSignin extends Component {
 
   render() {
     return (
-      <div >
+      <div className="form-container">
         <LoginForm />
         <RegisterClubForm />
         <CreateNewUser />

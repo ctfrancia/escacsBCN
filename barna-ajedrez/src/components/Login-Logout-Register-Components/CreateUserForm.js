@@ -13,7 +13,6 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
     super(props);
 
     this.state = {
-      activeStep: 0,
       fName: '',
       lName: '',
       password: '',
@@ -58,15 +57,15 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
 //FIXME: STYLE ALL THIS!!!!!!!!!!
   render() {
     return (
-      <div className="container">
-        <h1>create accout</h1>
+      <div className="ca-container">
+        <h1>create account</h1>
         <form>
           <div className="input-container">
 
           {inputFields.map(input =>
             <div key={input.id} className="input-div">
               {input.spanish}
-              <input />
+              <input type={input.type} className="f-input"/>
 
             </div>
             )}
@@ -81,29 +80,11 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
             <input key={input.id} />
             )}
           </div> */}
+          <input className="f-input send" type="submit" onSubmit={this.handleSumbit} value="Enviar" />
         </form>
       </div>
     );
   }
 }
 
-
 export default HorizontalLabelPositionBelowStepper
-
-
-// class NewUserForm extends React.Component {
-//   constructor(props) {
-//     super(props);
-
-//   this.state = {
-//     activeStep: 0,
-//     fName: '',
-//     lName: '',
-//     password: '',
-//     password2: '',
-//     email: '',
-//     email2: '',
-//     neighborhood: '',
-//     club: '',
-//   };
-// }

@@ -17,6 +17,9 @@ button{
   padding: 2%;
   background-color: #5adbff;
   justify-content: space-between;
+  -webkit-box-shadow: 6px 8px 8px -6px rgba(0,0,0,1);
+  -moz-box-shadow: 6px 8px 8px -6px rgba(0,0,0,1);
+  box-shadow: 6px 8px 8px -6px rgba(0,0,0,1);
 }
 
 .nav-button{
@@ -34,10 +37,7 @@ button{
   display:flex;
 }
 
-.input-container{
-  display: flex;
-  border: 1px solid red;
-}
+
 /* Tournament Item Container */
 .tContainer{
   /* display: flex;
@@ -84,12 +84,8 @@ align-self: center;
 .tDate,
 .tInfo,
 .tCreated{
-  /* width: 25vw; */
   word-wrap: break-word;
-  /* height: 50px; */
   padding: 5px;
-  /* border: 1px solid red; */
-  /* align-self: center; */
   align-self: center;
   text-align: center;
 }
@@ -105,4 +101,64 @@ align-self: center;
 /* ALL IMG MODS ARE BELOW */
 .img-clock{
   height: 50px;
+}
+
+/* !!!!!FORM CSS BELOW!!!!! */
+.form-container{
+  Display: flex;
+  justify-content: space-around;
+}
+.input-container{
+  display: flex;
+  /* flex-grow: 1; */
+  padding: 5px;
+  /* border: 1px solid red; */
+  margin: 10px;
+  /* justify-content: space-between; */
+  /* -webkit-box-shadow: 6px 8px 8px -6px rgba(0,0,0,1);
+  -moz-box-shadow: 6px 8px 8px -6px rgba(0,0,0,1);
+  box-shadow: 6px 8px 8px -6px rgba(0,0,0,1); */
+  flex-direction: column;
+
+}
+.input-div{
+  display: flex;
+  flex-direction: column;
+}
+.rc-container{
+  display: flex;
+  flex-direction: column;
+}
+.rc-form{
+  display: flex;
+  flex-direction: column;
+  /* background-color:; */
+}
+.f-input{
+  border: none;
+  height: 2.5em;
+  /* opacity: .1; */
+  border-radius: 5px;
+  color: #ffdd4a;
+  background-color: #5078a2;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1em;
+  -webkit-box-shadow: 6px 8px 8px -6px rgba(0,0,0,1);
+  -moz-box-shadow: 6px 8px 8px -6px rgba(0,0,0,1);
+  box-shadow: 6px 8px 8px -6px rgba(0,0,0,1);
+  font-weight: 800;
+  align-items: center;
+  margin:5px;
+}
+.checkbox-inputs{
+  display: flex;
+  align-self: center;
+}
+.send{
+  margin-left: 8%;
+  align-self: center;
+}
+
+.ca-container{
+  /* background-color: purple; */
 }

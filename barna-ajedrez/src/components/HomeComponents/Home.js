@@ -7,6 +7,7 @@ class Home extends Component {
     return (
       <div className="home-container">
         <img src={homeIcon} alt="Home" />
+        text will go here
       </div>
     );
   }
