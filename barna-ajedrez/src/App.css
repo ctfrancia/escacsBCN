@@ -143,9 +143,9 @@ align-self: center;
   background-color: #5078a2;
   font-family: 'Raleway', sans-serif;
   font-size: 1em;
-  -webkit-box-shadow: 6px 8px 8px -6px rgba(0,0,0,1);
+  /* -webkit-box-shadow: 6px 8px 8px -6px rgba(0,0,0,1);
   -moz-box-shadow: 6px 8px 8px -6px rgba(0,0,0,1);
-  box-shadow: 6px 8px 8px -6px rgba(0,0,0,1);
+  box-shadow: 6px 8px 8px -6px rgba(0,0,0,1); */
   font-weight: 800;
   align-items: center;
   margin:5px;
@@ -162,3 +162,33 @@ align-self: center;
 .ca-container{
   /* background-color: purple; */
 }
+.login-container{
+  display: flex;
+  flex-direction: column;
+}
+  input[type=text],
+  input[type=tel],
+  input[type=email],
+  input[type=password] {
+  border: 0;
+  box-shadow: -8px 10px 0px -7px #bb9f7a, 8px 10px 0px -7px #bb9f7a;
+  -webkit-transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+  }
+
+  input[type=text]:focus{
+  outline: none;
+  box-shadow: -8px 10px 0px -7px #fe9000, 8px 10px 0px -7px #fe9000;
+  }
+  input[type=tel]:focus{
+  outline: none;
+  box-shadow: -8px 10px 0px -7px #fe9000, 8px 10px 0px -7px #fe9000;
+  }
+  input[type=email]:focus{
+  outline: none;
+  box-shadow: -8px 10px 0px -7px #fe9000, 8px 10px 0px -7px #fe9000;
+  }
+  input[type=password]:focus{
+  outline: none;
+  box-shadow: -8px 10px 0px -7px #fe9000, 8px 10px 0px -7px #fe9000;
+  }

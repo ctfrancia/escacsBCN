@@ -99,6 +99,7 @@ class RegisterClubForm extends Component {
   render() {
     return (
       <div className="rc-container">
+      <h2>Register your club</h2>
         <form className="rc-form">
           Nombre del Club:{' '}
           <input
