@@ -20,7 +20,8 @@ class TournamentList extends Component {
       return <div> <LinearProgress /> </div>;
     } else {
       tournament.data.sort((a,b) => {
-        // console.log('A', a, 'B', b);
+
+        // console.log('START DATE FORMAT', a.startDate);
 
         let arr1 = a.startDate.split('-').slice(0, 10);
         let arr2 = b.startDate.split('-').slice(0, 10);
@@ -30,20 +31,18 @@ class TournamentList extends Component {
         let bDD = arr2[0];
         let bMM = arr2[1];
         let bYYYY = arr2[2];
-
+        //TODO: use MOMENT for the date
+        // const test = moment(a.startDate).format("llll")
+        // console.log('MOMENT TEST',test);
         console.log(arr1, arr2,'ARRAYS');
         return new Date(aYYYY, aMM, aDD) - new Date(bYYYY, bMM, bDD);
       })
       .filter(el => {
         let today = moment().format("DD-MM-YYYY").toString();
-        let tournamentDay = el.startDate.slice(0, 3);
-        let tournamentMonth = el.startDate.slice(3, 5);
 
         if (today > el.startDate) {
           console.log(el, 'ELEMENT ');
           const tournamentID = el.id;
-          // console.log('TOURNAMENTID ', tournamentID);
-
           axios
             .delete(`http://localhost:3001/DeleteTournament/ ${tournamentID}`)
             .then(res =>{
@@ -51,14 +50,13 @@ class TournamentList extends Component {
               if (res.status === 204) {
                 console.log('FUCK YES DELETE SUCCESSFULL!!!!!!')
               }
-
             })
+            //TODO: fix the reducer below so that it removes from state effectively
           // this.props.removeTournament(el);
           // return el;
         } else {
           return el;
         }
-        // console.log('FILTER ELEMET',el, 'Today', today, 'DATE PASSEDasdjhfalksdjhflka',   );
       });
       return (
         <div id="ti-container">
