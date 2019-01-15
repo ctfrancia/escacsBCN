@@ -1,19 +1,4 @@
 import React, { Component } from 'react';
-// import styled from 'emotion';
-// import { jsx } from '@emotion/core';
-
-// const Container = styled('div')`
-//   display: flex;
-//   flex-wrap: wrap;
-//   justify-content: space-around;
-//   flex-basis: 30%;
-// `;
-// const Location = styled('div')`
-//   display: flex;
-//   flex-wrap: wrap;
-//   justify-content: space-around;
-//   flex-basis: 30%;
-// `;
 
 class TournamentItem extends Component {
   render() {

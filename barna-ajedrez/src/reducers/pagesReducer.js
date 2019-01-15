@@ -1,6 +1,7 @@
 const defaultState = {
   pages: {
-    loading: true
+    loading: true,
+    visible: false,
   }
 };
 const pagesReducer = (state = defaultState.pages, action) => {
@@ -14,6 +15,16 @@ const pagesReducer = (state = defaultState.pages, action) => {
       return {
         loading: false
       };
+
+    case 'IS_VISIBLE':
+      return {
+        visible: true
+      };
+
+    case 'NOT_VISIBLE':
+    return{
+      visible: false
+    };
 
     default:
       return state;

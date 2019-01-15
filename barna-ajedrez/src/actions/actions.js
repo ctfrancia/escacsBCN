@@ -17,3 +17,12 @@ export const updateTournamentList = (tournaments) => (
 export const fetchTournamentList = () => ({
   type: 'FETCH_TOURNAMENT_LIST'
 });
+
+export const noVisibility = () => ({
+  type: 'NOT_VISIBLE'
+
+});
+
+export const yesVisibility = () => ({
+  type: 'IS_VISIBLE'
+});

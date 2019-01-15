@@ -40,11 +40,7 @@ button{
 
 /* Tournament Item Container */
 .tContainer{
-  /* display: flex;
-  border: 1px solid black;
-  border-radius: 5px;
-  width: 30%;
-  margin: 5px; */
+
   display: flex;
   flex-direction: column;
   width: 95vw;
@@ -76,7 +72,9 @@ align-self: center;
 
 }
 
-
+.close-form{
+  font-weight: 900;
+}
 .tName,
 .tLocation,
 .tPhone,
