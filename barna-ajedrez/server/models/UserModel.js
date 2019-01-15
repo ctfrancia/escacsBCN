@@ -17,15 +17,19 @@ const User = sequelize.define('user', {
   },
   fName: {
     type: Sequelize.STRING,
+    allowNull: false
   },
   lName: {
     type: Sequelize.STRING,
+    allowNull: false
   },
   password: {
     type: Sequelize.STRING,
+    allowNull: false
   },
   email: {
     type: Sequelize.STRING,
+    allowNull: false
   },
   neighborhood: {
     type: Sequelize.STRING,

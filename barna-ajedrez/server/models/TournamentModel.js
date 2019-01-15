@@ -16,22 +16,27 @@ const Tournament = sequelize.define('tournament', {
     autoIncrement: true
   },
   nameOfTournament: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
+    allowNull: false
   },
   clubCreated: {
-    type: Sequelize.BOOLEAN
+    type: Sequelize.BOOLEAN,
+    allowNull: false
   },
   location: {
     type: Sequelize.STRING
   },
   clubPhone: {
-    type: Sequelize.INTEGER
+    type: Sequelize.INTEGER,
+    allowNull: false
   },
   clubEmail: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
+    allowNull: false
   },
   startDate: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
+    allowNull: false
   },
   additionalInfo: {
     type: Sequelize.TEXT
