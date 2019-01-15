@@ -18,19 +18,19 @@ render() {
       <div>
         <div className="nav-container">
           <div className="nav-button">
-            <Link className="no-underline" to="/Donate"> Donate </Link>
+            <Link className="no-underline hvr-grow" to="/Donate"> Donate </Link>
           </div>
           <div className="the-rest">
             <div className="nav-button">
-              <Link className="no-underline" to="/"> Home </Link>
+              <Link className="no-underline hvr-grow" to="/"> Home </Link>
             </div>
             <div className="nav-button">
-              <Link className="no-underline" to="Tournaments" onClick={this.getTournamentList}> Tournaments </Link>
+              <Link className="no-underline hvr-grow" to="Tournaments" onClick={this.getTournamentList}> Tournaments </Link>
             </div>
             <div className="nav-button">
-              <Link className="no-underline" to="LoginRegister">Register / Signin </Link>
+              <Link className="no-underline hvr-grow" to="LoginRegister">Register / Signin </Link>
               {/* Conditionally render based on signed in or out * this will be done by checking state*/}
-              <Link className="no-underline" to="Signout"> Sign Out </Link>
+              {/* <Link className="no-underline" to="Signout"> Sign Out </Link> */}
             </div>
 
           </div>

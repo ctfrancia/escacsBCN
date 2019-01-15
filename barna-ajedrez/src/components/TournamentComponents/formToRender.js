@@ -64,7 +64,7 @@ class FormToRender extends Component {
           console.log('this is the error', err);
           alert('Was not');
         });
-
+      //
       axios
         .get('http://localhost:3001/GetTournamentList')
         .then(payload => {

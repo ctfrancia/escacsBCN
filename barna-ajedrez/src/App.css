@@ -35,6 +35,22 @@ button{
 .home-container{
   display: flex;
   flex-direction: column;
+  width: 100%;
+}
+.home-img{
+  height: 400px;
+}
+.home-content{
+  widows: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-self: center;
+  margin: 2%;
+  font-family: 'Abel', 'Thasadith', 'Roboto', sans-serif;
+  font-size: 1.5em;
+  text-align: center;
+
 }
 .the-rest{
   display:flex;
@@ -267,7 +283,7 @@ box-shadow: -8px 10px 0px -7px #fe9000, 8px 10px 0px -7px #fe9000;
 }
 .hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
   -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 p{
   font-family: 'Abel';
