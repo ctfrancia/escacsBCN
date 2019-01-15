@@ -7,7 +7,15 @@ class Home extends Component {
     return (
       <div className="home-container">
         <img src={homeIcon} alt="Home" />
-        text will go here
+        <section>
+          <h1>Bienvenid@ a Ajedrez BCN!</h1>
+          <p>
+            The goal of this website is so that smaller clubs throughout the city of Barcelona
+            have a place to go and create get togethers and tournaments. This will allow a centralized
+            place for people to go for chess meetings and tournaments and help clubs grow and make more
+            contacts, but, more importantly: PLAY CHESS!
+          </p>
+        </section>
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { noVisibility } from '../../actions/actions';
+import { noVisibility, updateTournamentList } from '../../actions/actions';
 import { connect } from 'react-redux';
+import axios from'axios';
 
 class FormToRender extends Component {
   constructor(props) {
@@ -20,7 +21,62 @@ class FormToRender extends Component {
   hideForm = () => {
     this.props.turnOffVisibility();
   }
+  handleChange = e => {
+    console.log(e.target.value);
 
+    let value = e.target.value;
+    let name = e.target.name;
+
+    this.setState({ [name]: value });
+  };
+
+
+  handleSubmit = e => {
+    e.preventDefault();
+    const value = this.state;
+    // const eChecker = this.state.clubEmail === this.state.clubEmail2 ? true : false;
+    // const nChecker = this.state.clubNumber === this.state.clubNumber2 ? true : false;
+    // // const
+
+    // if (!eChecker) {
+    //   alert('please make sure that your emails are the same');
+    // } else if (!nChecker) {
+    //   alert('please make sure that the phone numbers are the same');
+    // } else {
+      console.log('STATE BEING SENT', value);
+
+      axios
+        .post('http://localhost:3001/CreateTournament', {
+          nameOfTournament: value.nameOfTournament,
+          clubCreated: value.clubCreated,
+          location: value.location,
+          clubPhone: value.clubPhone,
+          clubEmail: value.clubEmail,
+          startDate: value.startDate,
+          additionalInfo: value.additionalInfo
+        })
+        .then(res => {
+          console.log(res);
+          console.log('Tournament Created Succesfully');
+        })
+        .catch(err => {
+          // properly receives
+          console.log('this is the error', err);
+          alert('Was not');
+        });
+
+      axios
+        .get('http://localhost:3001/GetTournamentList')
+        .then(payload => {
+          console.log(payload);
+
+          this.props.updateTournamentList(payload.data);
+        })
+        .catch(e =>{
+          console.log(e)
+        })
+    // }
+  };
 render(){
   return(
 
@@ -121,7 +177,7 @@ render(){
           name="startDate"
           type="text"
           onChange={this.handleChange}
-          value={this.state.startDate}
+          value={this.state.value}
           // locale="es-ES"
           placeholder="necesario: formato DD-MM-AAAA @24h00"
         />
@@ -143,7 +199,6 @@ render(){
         />
       </div>
       <input
-        // disabled={!isEnabled}
         className="f-input form-box pointer hvr-grow"
         type="submit"
         value="Enviar"
@@ -162,6 +217,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   turnOffVisibility: () => dispatch(noVisibility()),
+  updateTournamentList: tournament => dispatch(updateTournamentList(tournament)),
 });
 export default connect(
   mapStateToProps,

@@ -32,27 +32,40 @@ button{
   cursor: pointer;
 }
 /* Nav bar END */
-
+.home-container{
+  display: flex;
+  flex-direction: column;
+}
 .the-rest{
   display:flex;
+}
+
+h3{
+  color:#fe9000;
+  font-family: 'Abel'
 }
 
 
 /* Tournament Item Container */
 .tContainer{
-
   display: flex;
-  flex-direction: column;
-  width: 95vw;
-  height: 500px;
-  border: 1px solid black;
+  /* flex-direction: column; */
+  /* width: 100%; */
+  margin: 2em;
+  height: 550px;
+  border: 1px solid #fe9000;
   border-radius: 10px;
   overflow: scroll;
-  margin: 10px;
+  /* margin: 10px; */
+  text-align: center;
   justify-content: space-between;
-  -webkit-box-shadow: 6px 8px 8px -6px rgba(0,0,0,1);
+  -webkit-box-shadow: 6px 8px 8px -6px rgb(236, 236, 236);
   -moz-box-shadow: 6px 8px 8px -6px rgba(0,0,0,1);
-  box-shadow: 6px 8px 8px -6px rgba(0,0,0,1);
+  box-shadow: 6px 8px 8px 0px #fe9000;
+}
+.t-info-div{
+  width: 5em;;
+
 }
 
 /* tournament list container */
@@ -69,23 +82,27 @@ align-self: center;
   text-align: center;
   font-family: 'Abel', 'Thasadith', 'Roboto', sans-serif;
   font-size: 2em;
-
+}
+.t-more-info-column{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  justify-content: space-between;
+  padding: 10px 0px;
 }
 
 .close-form{
   font-weight: 900;
 }
-.tName,
-.tLocation,
-.tPhone,
-.tEmail,
-.tDate,
-.tInfo,
-.tCreated{
+.t-div{
+  width: 130%;
+  padding-left: 8px;
+}
+
+.tinfo{
   word-wrap: break-word;
-  padding: 5px;
-  align-self: center;
-  text-align: center;
+  width: 70%;
+
 }
 .button-font{
   font-family: 'ZCOOL QingKe HuangYou', cursive;
@@ -108,14 +125,8 @@ align-self: center;
 }
 .input-container{
   display: flex;
-  /* flex-grow: 1; */
   padding: 5px;
-  /* border: 1px solid red; */
   margin: 10px;
-  /* justify-content: space-between; */
-  /* -webkit-box-shadow: 6px 8px 8px -6px rgba(0,0,0,1);
-  -moz-box-shadow: 6px 8px 8px -6px rgba(0,0,0,1);
-  box-shadow: 6px 8px 8px -6px rgba(0,0,0,1); */
   flex-direction: column;
 
 }
@@ -130,7 +141,6 @@ align-self: center;
 .rc-form{
   display: flex;
   flex-direction: column;
-  /* background-color:; */
 }
 .f-input{
   border: none;
@@ -151,6 +161,10 @@ align-self: center;
 .send{
   margin-left: 8%;
   align-self: center;
+}
+.t-text{
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: 1.3px;
 }
 
 .ca-container{

@@ -2,46 +2,64 @@ import React, { Component } from 'react';
 
 class TournamentItem extends Component {
   render() {
-    // let time = moment(this.props.dateCreated.slice(0, 10)).locale('es');
-    // console.log('Time',time.);
+
     let time = this.props.dateCreated.slice(0,10);
 
     return (
       <div className="tContainer">
-        <div className="tName">
-          <h3>tournament name</h3>
-          {this.props.tournamentName}
+        <div className="t-info-div">
+          <div className="t-div">
+            <h3>NOMBRE DEL TORNEO</h3>
+            <p className="t-text">
+              {this.props.tournamentName}
+            </p>
+          </div>
+
+          <div className="t-div">
+            <h3>DIRECCIÓN</h3>
+            <p className="t-text">
+              {this.props.location}
+            </p>
+          </div>
+
+          <div className="t-div">
+            <h3>NUMERO DEL CLUB</h3>
+            <p className="t-text">
+              {this.props.clubPhone}
+            </p>
+          </div>
+
+          <div className="t-div">
+            <h3>EMAIL DEL CLUB</h3>
+            <p className="t-text">
+              {this.props.clubEmail}
+            </p>
+          </div>
+
+          <div className="t-div">
+            <h3>FECHA DEL TORNEO</h3>
+            <p className="t-text">
+              {this.props.startDate}
+            </p>
+          </div>
+
+        </div>
+        <div className="t-more-info-column">
+          <div className="tInfo hide-overflow">
+            <h3>MÁS INFORMACIÓN</h3>
+            <p className="t-text">
+              {this.props.additionalInfo}
+            </p>
+          </div>
+          <div className="tCreated">
+            <h3>FECHA DE CREACIÓN</h3>
+            <p className="t-text">
+              {time}
+            </p>
+          </div>
         </div>
 
-        <div className="tLocation">
-          <h3>location</h3>
-          {this.props.location}
-        </div>
 
-        <div className="tPhone">
-          <h3>phone number of club</h3>
-          {this.props.clubPhone}
-        </div>
-
-        <div className="tEmail">
-          <h3>contact email</h3>
-          {this.props.clubEmail}
-        </div>
-
-        <div className="tDate">
-          <h3>date</h3>
-          {this.props.startDate}
-        </div>
-
-        <div className="tInfo hide-overflow">
-          <h3>info</h3>
-          {this.props.additionalInfo}
-        </div>
-
-        <div className="tCreated">
-          <h3>date created</h3>
-          {time}
-        </div>
       </div>
     );
   }
