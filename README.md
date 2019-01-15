@@ -6,3 +6,4 @@ what needs to be added:
 -user authentication
 -update list of tournament of tournaments after creation
 -show list of tournaments based on date
+-pagination for tournament list retrieval

@@ -16,7 +16,6 @@ class LoginForm extends Component {
 }
 
 handleChange = e => {
-  // console.log(e.target.value)
   let value = e.target.value;
   let name = e.target.name;
     this.setState({ [name]: value });
@@ -28,8 +27,6 @@ handleSubmit = e => {
 
   const email = this.state.email;
   const password = this.state.password;
-  // console.log(this.state.email);
-  // console.log(this.state.password);
   axios
     .get(`http://localhost:3001/UserSign-in`,
     {
@@ -40,8 +37,10 @@ handleSubmit = e => {
     })
     .then(res => {
       console.log('response ',res);
-
-    });
+    })
+    .catch(e => {
+      alert('Email no existe')
+    })
 }
 
   render() {
