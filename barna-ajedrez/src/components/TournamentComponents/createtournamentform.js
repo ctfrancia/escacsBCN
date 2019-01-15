@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// const  moment = require('moment');
-// import DatePicker from 'react-date-picker'
-
 
 
 class CreateTournamentForm extends Component {
@@ -23,35 +20,36 @@ class CreateTournamentForm extends Component {
   handleSubmit = (e) =>{
     // const date = this.state.startDate;
     // console.log(date);
-
-
-
     const value = this.state;
     const eChecker = (this.state.clubEmail === this.state.clubEmail2) ? true : false;
     const nChecker = (this.state.clubNumber === this.state.clubNumber2) ? true : false;
 
-    if (!eChecker) alert('please make sure that your emails are the same');
-    if (!nChecker) alert('please make sure that the phone numbers are the same');
-    e.preventDefault();
-    axios
-      .post('http://localhost:3001/CreateTournament',{
-      nameOfTournament: value.nameOfTournament,
-      clubCreated: value.clubCreated,
-      location: value.location,
-      clubPhone: value.clubPhone,
-      clubEmail: value.clubEmail,
-      startDate: value.startDate,
-      additionalInfo: value.additionalInfo,
-      })
-      .then(res => {
-        console.log(res);
-        console.log('Tournament Created Succesfully');
-      })
-      .catch(err => {
-        // properly receives
-        console.log('this is the error', err);
-        alert('Was not able to create tournament try again later');
-      });
+    if (!eChecker) {
+      alert('please make sure that your emails are the same');
+    } else if (!nChecker) {
+      alert('please make sure that the phone numbers are the same');
+    } else {
+      e.preventDefault();
+      axios
+        .post('http://localhost:3001/CreateTournament',{
+        nameOfTournament: value.nameOfTournament,
+        clubCreated: value.clubCreated,
+        location: value.location,
+        clubPhone: value.clubPhone,
+        clubEmail: value.clubEmail,
+        startDate: value.startDate,
+        additionalInfo: value.additionalInfo,
+        })
+        .then(res => {
+          console.log(res);
+          console.log('Tournament Created Succesfully');
+        })
+        .catch(err => {
+          // properly receives
+          console.log('this is the error', err);
+          alert('Was not able to create tournament try again later');
+        });
+    }
   }
 
   handleChange = e => {
@@ -67,8 +65,38 @@ class CreateTournamentForm extends Component {
     return (
       <div className="ctf-container">
         <form className="f-container">
-          <div className="name-date-div">
+          <div className="first-column">
+            <div className="name-date-div">
+              <p>Nombre del torneo:</p>                       <input className="f-input" name="nameOfTournament" type="text" onChange={this.handleChange} value={this.state.value} nameoftournament="nameOfTournamet" />
+            </div>
+
+            <div className="email-div">
+              <div>
+                <p>Email del club:</p>                          <input className="f-input" name="clubEmail" type="email" onChange={this.handleChange} value={this.state.value} clubmmail="clubEmail" />
+              </div>
+            </div>
+            <div className="phone-div">
+              <div>
+                <p>Número de teléfono del club:</p>             <input className="f-input" name="clubPhone" type="text" onChange={this.handleChange} value={this.state.value} clubphone="clubPhone" />
+              </div>
+            </div>
+          </div>
+
+          <div className="second-column">
             <div>
+              <p>Dirección:</p>                                <input className="f-input" name="location" type="text" onChange={this.handleChange} value={this.state.value} location="location" />
+            </div>
+            <div>
+              <p>Verificar el email del club:</p>             <input className="f-input" name="clubEmail2" type="email" onChange={this.handleChange} value={this.state.value} clubmmail="clubEmail" />
+            </div>
+            <div>
+              <p>Verificar el número de teléfono del club:</p><input className="f-input" name="clubPhone2" type="text" onChange={this.handleChange} value={this.state.value} clubphone="clubPhone" />
+            </div>
+
+
+          </div>
+
+            {/* <div>
               <p>Nombre del torneo:</p>                       <input className="f-input" name="nameOfTournament" type="text"  onChange={this.handleChange} value={this.state.value} nameoftournament="nameOfTournamet" />
 
             </div>
@@ -103,11 +131,11 @@ class CreateTournamentForm extends Component {
 
           </div>
           <div className="more-info-div">
-            <p>Más información:</p>                         <textarea className="f-input" rows="5" cols="50" name="additionalInfo" type="text" onChange={this.handleChange} value={this.state.value} additionalinfo="additionalInfo"  />
+            <p>Más información:</p>                         <textarea className="f-input" rows="10" cols="80" name="additionalInfo" type="text" onChange={this.handleChange} value={this.state.value} additionalinfo="additionalInfo"  />
 
-          </div>
+          </div> */}
 
-          <input className="f-input pointer"type="submit" value="Enviar" onClick={this.handleSubmit} />
+          <input className="f-input pointer hvr-grow"type="submit" value="Enviar" onClick={this.handleSubmit} />
         </form>
       </div>
     );
