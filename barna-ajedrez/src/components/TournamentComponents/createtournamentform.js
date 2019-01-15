@@ -65,76 +65,39 @@ class CreateTournamentForm extends Component {
     return (
       <div className="ctf-container">
         <form className="f-container">
-          <div className="first-column">
-            <div className="name-date-div">
-              <p>Nombre del torneo:</p>                       <input className="f-input" name="nameOfTournament" type="text" onChange={this.handleChange} value={this.state.value} nameoftournament="nameOfTournamet" />
+
+
+          <div className="basic-info-container">
+            <div className="first-column">
+              <div className="form-box">
+                <p>Nombre del torneo:</p>                       <input className="f-input" name="nameOfTournament" type="text" onChange={this.handleChange} value={this.state.value} nameoftournament="nameOfTournamet" />
+              </div>
+
+              <div className="form-box">
+                  <p>Email del club:</p>                          <input className="f-input" name="clubEmail" type="email" onChange={this.handleChange} value={this.state.value} clubmmail="clubEmail" />
+              </div>
+              <div className="form-box">
+                  <p>Número de teléfono del club:</p>             <input className="f-input" name="clubPhone" type="text" onChange={this.handleChange} value={this.state.value} clubphone="clubPhone" />
+                </div>
             </div>
 
-            <div className="email-div">
-              <div>
-                <p>Email del club:</p>                          <input className="f-input" name="clubEmail" type="email" onChange={this.handleChange} value={this.state.value} clubmmail="clubEmail" />
+            <div className="second-column">
+              <div className="form-box">
+                <p>Dirección:</p>                                <input className="f-input" name="location" type="text" onChange={this.handleChange} value={this.state.value} location="location" />
+              </div>
+              <div className="form-box">
+                <p>Verificar el email del club:</p>             <input className="f-input" name="clubEmail2" type="email" onChange={this.handleChange} value={this.state.value} clubmmail="clubEmail" />
+              </div>
+              <div className="form-box">
+                <p>Verificar el número de teléfono del club:</p><input className="f-input" name="clubPhone2" type="text" onChange={this.handleChange} value={this.state.value} clubphone="clubPhone" />
               </div>
             </div>
-            <div className="phone-div">
-              <div>
-                <p>Número de teléfono del club:</p>             <input className="f-input" name="clubPhone" type="text" onChange={this.handleChange} value={this.state.value} clubphone="clubPhone" />
-              </div>
-            </div>
-          </div>
-
-          <div className="second-column">
-            <div>
-              <p>Dirección:</p>                                <input className="f-input" name="location" type="text" onChange={this.handleChange} value={this.state.value} location="location" />
-            </div>
-            <div>
-              <p>Verificar el email del club:</p>             <input className="f-input" name="clubEmail2" type="email" onChange={this.handleChange} value={this.state.value} clubmmail="clubEmail" />
-            </div>
-            <div>
-              <p>Verificar el número de teléfono del club:</p><input className="f-input" name="clubPhone2" type="text" onChange={this.handleChange} value={this.state.value} clubphone="clubPhone" />
-            </div>
-
 
           </div>
 
-            {/* <div>
-              <p>Nombre del torneo:</p>                       <input className="f-input" name="nameOfTournament" type="text"  onChange={this.handleChange} value={this.state.value} nameoftournament="nameOfTournamet" />
-
-            </div>
-            <div>
-              <p>Dirección:</p>                                <input className="f-input" name="location" type="text"          onChange={this.handleChange} value={this.state.value}  location="location" />
-
-            </div>
-          </div>
-          <div className="phone-div">
-            <div>
-              <p>Número de teléfono del club:</p>             <input className="f-input" name="clubPhone" type="text"         onChange={this.handleChange} value={this.state.value} clubphone="clubPhone" />
-
-            </div>
-            <div>
-              <p>Verificar el número de teléfono del club:</p><input className="f-input" name="clubPhone2" type="text"         onChange={this.handleChange} value={this.state.value} clubphone="clubPhone" />
-
-            </div>
-          </div>
-          <div className="email-div">
-            <div>
-              <p>Email del club:</p>                          <input className="f-input" name="clubEmail" type="email"        onChange={this.handleChange} value={this.state.value} clubmmail="clubEmail"  />
-
-            </div>
-            <div>
-              <p>Verificar el email del club:</p>             <input className="f-input" name="clubEmail2" type="email"        onChange={this.handleChange} value={this.state.value} clubmmail="clubEmail"  />
-
-            </div>
-
-          </div>
-          <div className="date-div">
-            <p>Día y hora:</p>                              <input className="f-input" name="date" type="text" onChange={this.handleChange} value={this.state.startDate} locale="es-ES" />
-
-          </div>
           <div className="more-info-div">
-            <p>Más información:</p>                         <textarea className="f-input" rows="10" cols="80" name="additionalInfo" type="text" onChange={this.handleChange} value={this.state.value} additionalinfo="additionalInfo"  />
-
-          </div> */}
-
+            <p>Más información:</p>                         <textarea className="f-input" rows="10" cols="80" name="additionalInfo" type="text" onChange={this.handleChange} value={this.state.value} additionalinfo="additionalInfo" />
+          </div>
           <input className="f-input pointer hvr-grow"type="submit" value="Enviar" onClick={this.handleSubmit} />
         </form>
       </div>
