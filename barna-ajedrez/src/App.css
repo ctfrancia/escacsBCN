@@ -257,3 +257,7 @@ box-shadow: -8px 10px 0px -7px #fe9000, 8px 10px 0px -7px #fe9000;
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
+p{
+  font-family: 'Abel';
+  font-weight: 700;
+}

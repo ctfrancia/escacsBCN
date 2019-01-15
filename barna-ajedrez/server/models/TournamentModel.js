@@ -70,7 +70,7 @@ module.exports.writeToNewTournamentDB = ctx => {
       additionalInfo: tInfo.additionalInfo
     }
   }).spread((t, created) => {
-    console.log('asdfasdfasdfasdfa', t);
+    // console.log('asdfasdfasdfasdfa', t);
 
     console.log(t.get({ plain: true }));
 
