@@ -20,7 +20,7 @@ router.put('/UpdateUser', userController.updateUser);
 router.post('/CreateTournament', tournamentController.createTournament);
 router.get('/GetTournamentList', tournamentController.getAllTournaments);
 router.get('/GetTournament/:id', tournamentController.getOneTournament);
-router.delete('/DeleteTournament', tournamentController.deleteTournament);
+router.delete('/DeleteTournament/:id', tournamentController.deleteTournament);
 router.put('/UpdateTournament', tournamentController.updateTournament);
 
 module.exports = router;

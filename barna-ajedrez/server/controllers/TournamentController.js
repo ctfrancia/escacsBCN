@@ -7,6 +7,7 @@ const {
   fetchOneTournament
 } = require('../models/TournamentModel');
 
+
 exports.getAllTournaments = async ctx => {
   try {
     ctx.response.body = await fetchAllTournaments();
@@ -36,7 +37,7 @@ module.exports.createTournament = async function postToDB(ctx) {
 };
 
 exports.getOneTournament = async ctx => {
-  const id = ctx.tournament.id;
+  const {id} = ctx.tournament.id;
   try {
     await fetchOneTournament(id)
 
@@ -46,9 +47,16 @@ exports.getOneTournament = async ctx => {
 };
 
 exports.deleteTournament = async ctx => {
-  const id = ctx.tournament.id;
+// console.log('CTX PARAMS',ctx.params);
+
+  // const id = ctx.params;
   try {
-    await deleteTournament(id);
+    const successfulDelete = await deleteTournament(ctx);
+    if (!!successfulDelete) {
+      ctx.response.status = 204;
+    } else {
+      ctx.response.status = 518;
+    }
   } catch(e) {
     console.log(e);
 

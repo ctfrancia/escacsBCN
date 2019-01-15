@@ -13,6 +13,22 @@ const tournamentsReducer = (state = defaultState.tournaments, action) => {
     case 'UPDATE_TOURNAMENT_LIST':
       return [...state, action.tournaments];
 
+      case 'REMOVE_TOURNAMENT':
+      console.log('REMOVE TOURNAMENT REDUCER',action.tournament.id);
+      console.log('STATE', state[0].data);
+      const arr = state[0].data;
+      console.log('ARR CONST', arr);
+
+      const newState = arr.filter(tournament => tournament.id !== action.tournament.id);
+      return [...newState, action.tournaments ]
+      // return {
+      //   // ...state,
+      //   // tournaments: [...newState]
+      // }
+      // console.log(' STATE FILTER TOURNAMENT',tournament) );
+
+        // log tournament.id !== action.tournament.id);
+
     default:
       return state;
   }

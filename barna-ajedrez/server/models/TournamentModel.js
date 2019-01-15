@@ -49,11 +49,6 @@ const Tournament = sequelize.define('tournament', {
 
 module.exports.writeToNewTournamentDB = ctx => {
   const tInfo = ctx.request.body;
-  console.log(
-    'dfkjgal;kjglkwjrglkhrlkejhglkwjehrlkjhwlkrjhljwhtlekrjhtlwjerhtlwjhrtlkjwh',
-    tInfo.nameOfTournament
-  );
-  moment.locale('es');
 
 
   const answer = Tournament.findOrCreate({
@@ -81,9 +76,30 @@ module.exports.writeToNewTournamentDB = ctx => {
   return answer;
 };
 
-exports.deleteTournament = id => {
+exports.deleteTournament = async  ctx => {
   //return Tournament.findAll().then(tournaments => console.log(tournaments));
   //here we will find the tournament by id and delete it from SB
+  console.log('RECEIVED ID', ctx.params.id);
+  const findId = parseInt(ctx.params.id);
+  console.log('FIND ID!!!!', findId);
+
+
+  const answer = await Tournament.destroy({
+    where: {
+      id: findId
+    }
+  }).then(res => {
+    console.log('RES IN THE THEN STATEMENT', res);
+    return res;
+  })
+  .catch(e => {
+    console.log(e);
+
+  });
+
+  // console.log('DELETE ANSWER', answer);
+  return answer;
+
 };
 
 exports.fetchAllTournaments = () => {

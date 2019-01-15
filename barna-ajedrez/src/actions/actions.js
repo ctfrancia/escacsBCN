@@ -5,6 +5,11 @@ export const addNewTournament = tournament => ({
   tournament,
 });
 
+export const removeTournament = (tournament) => ({
+  type: 'REMOVE_TOURNAMENT',
+  tournament,
+});
+
 //argument is getting passed as an full payload object
 export const updateTournamentList = (tournaments) => (
   //it's being reveived here
