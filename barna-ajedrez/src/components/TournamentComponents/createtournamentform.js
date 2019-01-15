@@ -65,8 +65,9 @@ class CreateTournamentForm extends Component {
     return (
       <div className="ctf-container">
         <form className="f-container">
+        {/* <div>
 
-
+        </div> */}
           <div className="basic-info-container">
             <div className="first-column">
               <div className="form-box">
@@ -92,13 +93,17 @@ class CreateTournamentForm extends Component {
                 <p>Verificar el número de teléfono del club:</p><input className="f-input" name="clubPhone2" type="text" onChange={this.handleChange} value={this.state.value} clubphone="clubPhone" />
               </div>
             </div>
-
           </div>
+            <div className="form-box">
+              <p>Día y hora:</p>                              <input className="f-input" name="date" type="text" onChange={this.handleChange} value={this.state.startDate} locale="es-ES" />
+            </div>
 
-          <div className="more-info-div">
-            <p>Más información:</p>                         <textarea className="f-input" rows="10" cols="80" name="additionalInfo" type="text" onChange={this.handleChange} value={this.state.value} additionalinfo="additionalInfo" />
-          </div>
-          <input className="f-input pointer hvr-grow"type="submit" value="Enviar" onClick={this.handleSubmit} />
+          {/* <div> */}
+            <div className="form-box">
+              <p>Más información:</p>                         <textarea className="" rows="20" cols="80" name="additionalInfo" type="text" onChange={this.handleChange} value={this.state.value} additionalinfo="additionalInfo" />
+            </div>
+            <input className="f-input form-box pointer hvr-grow"type="submit" value="Enviar" onClick={this.handleSubmit} />
+          {/* </div> */}
         </form>
       </div>
     );
