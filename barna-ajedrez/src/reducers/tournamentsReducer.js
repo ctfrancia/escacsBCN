@@ -19,6 +19,7 @@ const tournamentsReducer = (state = defaultState.tournaments, action) => {
       const arr = state[0].data;
       console.log('ARR CONST', arr);
 
+
       const newState = arr.filter(tournament => tournament.id !== action.tournament.id);
       return [...newState, action.tournaments ]
       // return {
