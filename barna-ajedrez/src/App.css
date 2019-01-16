@@ -3,7 +3,6 @@ button{
   border: none;
   color: #ffdd4a;
   cursor: pointer;
-  font-family:
 }
 
 .App {
@@ -61,7 +60,6 @@ button{
 .donate-container{
   width: 95%;
   display: flex;
-  /* flex-direction: column; */
   align-content: center;
   align-self: center;
   margin: 2%;
@@ -94,14 +92,11 @@ h3{
 /* Tournament Item Container */
 .tContainer{
   display: flex;
-  /* flex-direction: column; */
-  /* width: 100%; */
   margin: 2em;
   height: 560px;
   border: 1px solid #fe9000;
   border-radius: 10px;
   overflow: scroll;
-  /* margin: 10px; */
   text-align: center;
   justify-content: space-between;
   -webkit-box-shadow: 6px 8px 8px -6px rgb(236, 236, 236);
@@ -154,9 +149,6 @@ align-self: center;
   font-size: 1.5em;
 }
 
-.hide-overflow{
-  /* overflow: scroll; */
-}
 
 /* ALL IMG MODS ARE BELOW */
 .img-clock{
@@ -212,17 +204,12 @@ align-self: center;
   letter-spacing: 1.3px;
 }
 
-.ca-container{
-  /* background-color: purple; */
-}
 .login-container{
   display: flex;
   flex-direction: column;
 }
 .ctf-container{
-  /* display: flex; */
   width: 75vw;
-  /* align-self: center; */
   justify-content: center;
   text-align: center;
   margin:auto;
@@ -232,8 +219,6 @@ align-self: center;
   display: flex;
   flex-wrap: wrap;
   width: 80vw;
-  /* align-self: center; */
-  /* flex-direction: column; */
 }
 .basic-info-container{
   width: 100%;
