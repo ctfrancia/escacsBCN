@@ -1,5 +1,4 @@
 const CONFIG = require('../config');
-const moment = require('moment');
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize('ajedrezdb', CONFIG.duser, CONFIG.dpass, {
   host: 'localhost',
@@ -65,11 +64,8 @@ module.exports.writeToNewTournamentDB = ctx => {
       additionalInfo: tInfo.additionalInfo
     }
   }).spread((t, created) => {
-    // console.log('asdfasdfasdfasdfa', t);
 
-    console.log(t.get({ plain: true }));
-
-    console.log('THIS IS IF IT IS CREATED', created);
+    // console.log(t.get({ plain: true }));
 
     return created;
   });
@@ -77,12 +73,6 @@ module.exports.writeToNewTournamentDB = ctx => {
 };
 
 exports.deleteTournament = async  ctx => {
-  //return Tournament.findAll().then(tournaments => console.log(tournaments));
-  //here we will find the tournament by id and delete it from SB
-  console.log('RECEIVED ID', ctx.params.id);
-  const findId = parseInt(ctx.params.id);
-  console.log('FIND ID!!!!', findId);
-
 
   const answer = await Tournament.destroy({
     where: {

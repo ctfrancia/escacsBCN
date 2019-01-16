@@ -47,9 +47,7 @@ exports.getOneTournament = async ctx => {
 };
 
 exports.deleteTournament = async ctx => {
-// console.log('CTX PARAMS',ctx.params);
 
-  // const id = ctx.params;
   try {
     const successfulDelete = await deleteTournament(ctx);
     if (!!successfulDelete) {

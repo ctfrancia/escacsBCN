@@ -43,20 +43,21 @@ class TournamentList extends Component {
         if (today > el.startDate) {
           console.log(el, 'ELEMENT ');
           const tournamentID = el.id;
-          axios
-            .delete(`http://localhost:3001/DeleteTournament/ ${tournamentID}`)
-            .then(res =>{
-              console.log('DELETE RESPOSE', res);
-              if (res.status === 204) {
-                console.log('FUCK YES DELETE SUCCESSFULL!!!!!!')
-              }
-            })
-            //TODO: fix the reducer below so that it removes from state effectively
-          // this.props.removeTournament(el);
-          // return el;
-        } else {
-          return el;
-        }
+              axios
+                .delete(`http://localhost:3001/DeleteTournament/ ${tournamentID}`)
+                .then(res =>{
+                  console.log('DELETE RESPOSE', res);
+                  if (res.status === 204) {
+                    console.log('FUCK YES DELETE SUCCESSFULL!!!!!!')
+                  }
+                })
+                //FIXME: fix the reducer below so that it removes from state effectively
+              // this.props.removeTournament(el);
+              // return el;
+            } else {
+              return el;
+            }
+        return el;
       });
       return (
         <div id="ti-container">
