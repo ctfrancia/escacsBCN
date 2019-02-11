@@ -4,12 +4,18 @@
 
 Ajedrez BCN is a project aimed to make the management of tournaments by clubs and leagues easier to manage and for players/enthusiasts to find a tournament to attend or a club to join.
 
-## Front End
+## Getting started
+- Fork/Clone the repo
+- `$ cd escacsBCN`
+- Ensure you have PostgreSQL running on your machine
+- `$ npm start` from terminal once PostgreSQL is set up
+
+### Front End
 
 - React
 - Redux
 
-## Back End
+### Back End
 
 - Node
 - Koa
