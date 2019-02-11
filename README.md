@@ -1,9 +1,16 @@
-# escacsBCN
-a full stack CRUD application where users and clubs can go and list tournaments within Barcelona. The application is written in React, Redux, Koa, PostreSQL and Sequelize
+# Ajedrez BCN!
 
-what needs to be added:
--deleting tournaments that have passed the date
--user authentication
--update list of tournament of tournaments after creation
--show list of tournaments based on date
--pagination for tournament list retrieval
+![](https://github.com/ctfrancia/escacsBCN/blob/master/Screenshot%202019-02-11%20at%2010.49.08.png)
+
+Ajedrez BCN is a project aimed to make the management of tournaments by clubs and leagues easier to manage and for players/enthusiasts to find a tournament to attend or a club to join.
+
+## Front End
+
+- React
+- Redux
+
+## Back End
+
+- Node
+- Koa
+- PostgreSQL
