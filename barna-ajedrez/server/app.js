@@ -5,10 +5,7 @@ const router = require('./router');
 const PORT = 3001;
 const logger = require('koa-logger');
 const cors = require('@koa/cors');
-// const corsOptions = ({
 
-// })
-//{origin: 'http://localhost:3000/*'}
 app
   .use(cors())
   .use(logger())
@@ -16,3 +13,5 @@ app
   .use(router.routes());
 
 app.listen(PORT, () => console.log(`Now listening on port: ${PORT}`));
+
+module.exports = app;
